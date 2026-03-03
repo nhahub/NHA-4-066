@@ -1,0 +1,75 @@
+# ===========================
+# DATA — Never commit raw data
+# ===========================
+data/raw/*
+!data/raw/.gitkeep
+data/chunked/*
+!data/chunked/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# ===========================
+# SECRET KEYS — Never commit
+# ===========================
+.env
+*.env
+secrets/
+
+# ===========================
+# Python temporary files
+# ===========================
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ===========================
+# Virtual environment
+# ===========================
+venv/
+.venv/
+env/
+ENV/
+
+# ===========================
+# Jupyter Notebook checkpoints
+# ===========================
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ===========================
+# ML and model files (too large for GitHub)
+# ===========================
+*.pkl
+*.pickle
+*.bin
+*.pt
+*.pth
+*.onnx
+*.faiss
+*.index
+mlruns/
+
+# ===========================
+# OS files
+# ===========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===========================
+# IDE settings
+# ===========================
+.vscode/
+.idea/
+*.swp
+
+# ===========================
+# Logs
+# ===========================
+*.log
+logs/
