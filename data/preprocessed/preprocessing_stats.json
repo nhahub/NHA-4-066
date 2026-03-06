@@ -1,0 +1,14 @@
+{
+  "total_rows": 26872,
+  "near_duplicates": 2898,
+  "clean_rows": 23974,
+  "unique_intents": 27,
+  "unique_categories": 11,
+  "train_size": 19178,
+  "val_size": 2398,
+  "test_size": 2398,
+  "rag_chunks": 23974,
+  "faq_chunks": 27,
+  "instruction_token_len": {},
+  "response_token_len": {}
+}
