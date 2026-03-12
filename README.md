@@ -361,9 +361,9 @@ Customer support responses are naturally paraphrased. BLEU/ROUGE penalise reword
 ## 🛣 Roadmap
 
 - [x] Data preprocessing & EDA (MS1)
-- [x] BGE vector store with MongoDB (MS2 T1)
-- [x] RAG pipeline with Mistral via Ollama (MS2 T2)
-- [x] Retrieval & relevance evaluation framework (MS2 T2)
+- [ ] BGE vector store with MongoDB (MS2 T1)
+- [ ] RAG pipeline with Mistral via Ollama (MS2 T2)
+- [ ] Retrieval & relevance evaluation framework (MS2 T2)
 - [ ] RAG optimization — reranking, chunk size tuning (MS2 T3)
 - [ ] FastAPI REST service (MS3)
 - [ ] Azure deployment (MS3)
