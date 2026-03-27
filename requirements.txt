@@ -1,9 +1,36 @@
-datasets==4.6.1
-pandas==3.0.1
-matplotlib==3.10.8
+# data
+pandas==2.2.0
+pyarrow==15.0.0
+datasets==2.19.0
+
+# EDA & visualization
+matplotlib==3.10.1
 seaborn==0.13.2
-numpy==2.4.2
+
+# ML & preprocessing
+scikit-learn==1.4.2
+tiktoken==0.7.0
+nltk==3.8.1
+
+# torch — pin all three together, don't update independently
+numpy==1.26.4
+torch==2.4.1
+torchvision==0.19.1
+
+# embeddings & transformers
+safetensors==0.4.5
+transformers==4.44.2
+sentence-transformers==3.1.1
+
+# vector store
+pymongo==4.7.0
+rank-bm25==0.2.2
+
+# evaluation
+rouge-score==0.1.2
+bert-score==0.3.13
+
+# utils
+pyyaml==6.0.1
+tqdm==4.66.4
 pathlib==1.0.1
-scikit-learn==1.8.0
-tiktoken==0.12.0
-nltk==3.9.3
