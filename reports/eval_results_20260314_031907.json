@@ -1,0 +1,3079 @@
+{
+  "timestamp": "20260314_031907",
+  "n_samples": 50,
+  "retrieval_metrics": {
+    "num_queries": 50,
+    "hit_rate@1": 1.0,
+    "mrr@1": 1.0,
+    "precision@1": 1.0,
+    "hit_rate@3": 1.0,
+    "mrr@3": 1.0,
+    "precision@3": 1.0,
+    "hit_rate@5": 1.0,
+    "mrr@5": 1.0,
+    "precision@5": 0.992
+  },
+  "relevance_metrics": {
+    "num_samples": 50,
+    "mean_cosine_similarity": 0.8681,
+    "std_cosine_similarity": 0.0622,
+    "mean_bertscore_f1": 0.3987,
+    "std_bertscore_f1": 0.2412
+  },
+  "per_query_retrieval": [
+    {
+      "query": "I have to change to the {{Account Type}} account",
+      "ground_truth_intent": "switch_account",
+      "retrieved_intents": [
+        "switch_account",
+        "switch_account",
+        "switch_account",
+        "switch_account",
+        "switch_account"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "I need to correct purchase {{Order Number}}",
+      "ground_truth_intent": "change_order",
+      "retrieved_intents": [
+        "change_order",
+        "change_order",
+        "change_order",
+        "change_order",
+        "change_order"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "assistance to see the ETA of order {{Order Number}}",
+      "ground_truth_intent": "track_order",
+      "retrieved_intents": [
+        "track_order",
+        "track_order",
+        "track_order",
+        "track_order",
+        "track_order"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "want assistance solving a payment issue",
+      "ground_truth_intent": "payment_issue",
+      "retrieved_intents": [
+        "payment_issue",
+        "payment_issue",
+        "payment_issue",
+        "payment_issue",
+        "payment_issue"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "how can I speak with an agent?",
+      "ground_truth_intent": "contact_human_agent",
+      "retrieved_intents": [
+        "contact_human_agent",
+        "contact_human_agent",
+        "contact_human_agent",
+        "contact_human_agent",
+        "contact_human_agent"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "wanna look for the bill #85632 how do i do it",
+      "ground_truth_intent": "check_invoice",
+      "retrieved_intents": [
+        "check_invoice",
+        "check_invoice",
+        "check_invoice",
+        "check_invoice",
+        "check_invoice"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "tell me about subscribing to your corporate newsletter",
+      "ground_truth_intent": "newsletter_subscription",
+      "retrieved_intents": [
+        "newsletter_subscription",
+        "newsletter_subscription",
+        "newsletter_subscription",
+        "newsletter_subscription",
+        "newsletter_subscription"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "need help to obtain my money back",
+      "ground_truth_intent": "get_refund",
+      "retrieved_intents": [
+        "get_refund",
+        "get_refund",
+        "get_refund",
+        "get_refund",
+        "get_refund"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "where could I reset my profile PIN code?",
+      "ground_truth_intent": "recover_password",
+      "retrieved_intents": [
+        "recover_password",
+        "recover_password",
+        "recover_password",
+        "recover_password",
+        "recover_password"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "want assistance seeing bill #37777",
+      "ground_truth_intent": "check_invoice",
+      "retrieved_intents": [
+        "check_invoice",
+        "check_invoice",
+        "check_invoice",
+        "check_invoice",
+        "check_invoice"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "I have to notify of a payment error",
+      "ground_truth_intent": "payment_issue",
+      "retrieved_intents": [
+        "payment_issue",
+        "payment_issue",
+        "payment_issue",
+        "payment_issue",
+        "payment_issue"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "there are issues setting up the delivery address",
+      "ground_truth_intent": "set_up_shipping_address",
+      "retrieved_intents": [
+        "set_up_shipping_address",
+        "set_up_shipping_address",
+        "set_up_shipping_address",
+        "set_up_shipping_address",
+        "set_up_shipping_address"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "can I check what delivery options I have?",
+      "ground_truth_intent": "delivery_options",
+      "retrieved_intents": [
+        "delivery_options",
+        "delivery_options",
+        "delivery_options",
+        "delivery_options",
+        "delivery_options"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "how to list your bloody accepted payment methods?",
+      "ground_truth_intent": "check_payment_methods",
+      "retrieved_intents": [
+        "check_payment_methods",
+        "check_payment_methods",
+        "check_payment_methods",
+        "check_payment_methods",
+        "check_payment_methods"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "wanna check the status of purchase {{Order Number}} how to do it",
+      "ground_truth_intent": "track_order",
+      "retrieved_intents": [
+        "track_order",
+        "track_order",
+        "track_order",
+        "track_order",
+        "track_order"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "is there an e-mail to leave a review for a service",
+      "ground_truth_intent": "review",
+      "retrieved_intents": [
+        "review",
+        "review",
+        "review",
+        "review",
+        "review"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "can you help me to open a freemium account?",
+      "ground_truth_intent": "create_account",
+      "retrieved_intents": [
+        "create_account",
+        "create_account",
+        "create_account",
+        "create_account",
+        "create_account"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "I try to obtain refunds",
+      "ground_truth_intent": "get_refund",
+      "retrieved_intents": [
+        "get_refund",
+        "get_refund",
+        "get_refund",
+        "get_refund",
+        "get_refund"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "help checking in which cases can I ask for reimbursements",
+      "ground_truth_intent": "check_refund_policy",
+      "retrieved_intents": [
+        "check_refund_policy",
+        "check_refund_policy",
+        "check_refund_policy",
+        "check_refund_policy",
+        "check_refund_policy"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "could you help me checking the refund current status?",
+      "ground_truth_intent": "track_refund",
+      "retrieved_intents": [
+        "track_refund",
+        "track_refund",
+        "track_refund",
+        "track_refund",
+        "track_refund"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "where to check how long the shipping takes?",
+      "ground_truth_intent": "delivery_period",
+      "retrieved_intents": [
+        "delivery_period",
+        "delivery_period",
+        "delivery_period",
+        "delivery_options",
+        "delivery_period"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "can you help me to submit a different delivery address?",
+      "ground_truth_intent": "set_up_shipping_address",
+      "retrieved_intents": [
+        "set_up_shipping_address",
+        "set_up_shipping_address",
+        "set_up_shipping_address",
+        "set_up_shipping_address",
+        "set_up_shipping_address"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "i can check the status of my company newsletter subscription",
+      "ground_truth_intent": "newsletter_subscription",
+      "retrieved_intents": [
+        "newsletter_subscription",
+        "newsletter_subscription",
+        "newsletter_subscription",
+        "newsletter_subscription",
+        "newsletter_subscription"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "i have issues editing the address",
+      "ground_truth_intent": "change_shipping_address",
+      "retrieved_intents": [
+        "change_shipping_address",
+        "change_shipping_address",
+        "change_shipping_address",
+        "change_shipping_address",
+        "change_shipping_address"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "i do not know what i have to do to edit the user information",
+      "ground_truth_intent": "edit_account",
+      "retrieved_intents": [
+        "edit_account",
+        "edit_account",
+        "edit_account",
+        "edit_account",
+        "edit_account"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "speak with human agent",
+      "ground_truth_intent": "contact_human_agent",
+      "retrieved_intents": [
+        "contact_human_agent",
+        "contact_human_agent",
+        "contact_human_agent",
+        "contact_human_agent",
+        "contact_human_agent"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "I need assistance to shop several of your product",
+      "ground_truth_intent": "place_order",
+      "retrieved_intents": [
+        "place_order",
+        "place_order",
+        "place_order",
+        "place_order",
+        "place_order"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "I need assistance to file a consumer claim",
+      "ground_truth_intent": "complaint",
+      "retrieved_intents": [
+        "complaint",
+        "complaint",
+        "complaint",
+        "complaint",
+        "complaint"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "edit information on premium account",
+      "ground_truth_intent": "edit_account",
+      "retrieved_intents": [
+        "edit_account",
+        "edit_account",
+        "edit_account",
+        "edit_account",
+        "edit_account"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "i have got to modify my shipping address how to do it",
+      "ground_truth_intent": "change_shipping_address",
+      "retrieved_intents": [
+        "change_shipping_address",
+        "change_shipping_address",
+        "change_shipping_address",
+        "change_shipping_address",
+        "change_shipping_address"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "I want to delete a {{Account Type}} account, help me",
+      "ground_truth_intent": "delete_account",
+      "retrieved_intents": [
+        "delete_account",
+        "delete_account",
+        "delete_account",
+        "delete_account",
+        "delete_account"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "I have got to leave my feedback, I need assistance",
+      "ground_truth_intent": "review",
+      "retrieved_intents": [
+        "review",
+        "review",
+        "review",
+        "review",
+        "review"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "show cancellation penalty",
+      "ground_truth_intent": "check_cancellation_fee",
+      "retrieved_intents": [
+        "check_cancellation_fee",
+        "check_cancellation_fee",
+        "check_cancellation_fee",
+        "check_cancellation_fee",
+        "check_cancellation_fee"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "how do i create a freemium account",
+      "ground_truth_intent": "create_account",
+      "retrieved_intents": [
+        "create_account",
+        "create_account",
+        "create_account",
+        "create_account",
+        "create_account"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "how do I file a consumer complaint against your company?",
+      "ground_truth_intent": "complaint",
+      "retrieved_intents": [
+        "complaint",
+        "complaint",
+        "complaint",
+        "complaint",
+        "complaint"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "could ya help me infofming of a sign-up issue",
+      "ground_truth_intent": "registration_problems",
+      "retrieved_intents": [
+        "registration_problems",
+        "registration_problems",
+        "registration_problems",
+        "registration_problems",
+        "registration_problems"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "find information about the lost access key",
+      "ground_truth_intent": "recover_password",
+      "retrieved_intents": [
+        "recover_password",
+        "recover_password",
+        "recover_password",
+        "recover_password",
+        "recover_password"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "I don't know what I need to do to get the bill #12588",
+      "ground_truth_intent": "get_invoice",
+      "retrieved_intents": [
+        "get_invoice",
+        "get_invoice",
+        "get_invoice",
+        "get_invoice",
+        "get_invoice"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "I do not know what to do to delete a standard account",
+      "ground_truth_intent": "delete_account",
+      "retrieved_intents": [
+        "delete_account",
+        "delete_account",
+        "delete_account",
+        "delete_account",
+        "delete_account"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "I don't know what to do to call customer support",
+      "ground_truth_intent": "contact_customer_service",
+      "retrieved_intents": [
+        "contact_customer_service",
+        "contact_customer_service",
+        "contact_customer_service",
+        "contact_customer_service",
+        "contact_human_agent"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "add something to order {{Order Number}}",
+      "ground_truth_intent": "change_order",
+      "retrieved_intents": [
+        "change_order",
+        "change_order",
+        "change_order",
+        "change_order",
+        "change_order"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "can you help me to buy a damn article?",
+      "ground_truth_intent": "place_order",
+      "retrieved_intents": [
+        "place_order",
+        "place_order",
+        "place_order",
+        "place_order",
+        "place_order"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "can i check at what time i can reach customer support",
+      "ground_truth_intent": "contact_customer_service",
+      "retrieved_intents": [
+        "contact_customer_service",
+        "contact_customer_service",
+        "contact_customer_service",
+        "contact_customer_service",
+        "contact_customer_service"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "seeing your money back policy",
+      "ground_truth_intent": "check_refund_policy",
+      "retrieved_intents": [
+        "check_refund_policy",
+        "check_refund_policy",
+        "check_refund_policy",
+        "check_refund_policy",
+        "check_refund_policy"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "I bought some items, help canceling order {{Order Number}}",
+      "ground_truth_intent": "cancel_order",
+      "retrieved_intents": [
+        "cancel_order",
+        "cancel_order",
+        "cancel_order",
+        "cancel_order",
+        "cancel_order"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "could you help me inform of a problem with registrations?",
+      "ground_truth_intent": "registration_problems",
+      "retrieved_intents": [
+        "registration_problems",
+        "registration_problems",
+        "registration_problems",
+        "registration_problems",
+        "registration_problems"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "I want assistance seeing your accepted payment methods",
+      "ground_truth_intent": "check_payment_methods",
+      "retrieved_intents": [
+        "check_payment_methods",
+        "check_payment_methods",
+        "check_payment_methods",
+        "check_payment_methods",
+        "check_payment_methods"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "I am trying to change to the standard account",
+      "ground_truth_intent": "switch_account",
+      "retrieved_intents": [
+        "switch_account",
+        "switch_account",
+        "switch_account",
+        "switch_account",
+        "switch_account"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "I don't knos how to check when my package is going to arrive",
+      "ground_truth_intent": "delivery_period",
+      "retrieved_intents": [
+        "delivery_period",
+        "delivery_period",
+        "delivery_period",
+        "delivery_period",
+        "delivery_period"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    },
+    {
+      "query": "i have got to check the damn withdrawal penalty",
+      "ground_truth_intent": "check_cancellation_fee",
+      "retrieved_intents": [
+        "check_cancellation_fee",
+        "check_cancellation_fee",
+        "check_cancellation_fee",
+        "check_cancellation_fee",
+        "check_cancellation_fee"
+      ],
+      "first_hit_rank": 1,
+      "hit@5": 1,
+      "rr@5": 1.0
+    }
+  ],
+  "per_query_relevance": [
+    {
+      "query": "I have to change to the {{Account Type}} account",
+      "generated": "To change to the [ACCOUNT_TYPE] account, follow these steps:\n\n1. Log into your account using your credentials.\n2. Navigate to the account settings or ",
+      "reference": "I'll make it happen! I appreciate your decision to switch to our {{Account Type}} account. Allow me to guide you through the process and ensure a seam",
+      "cosine_similarity": 0.8546,
+      "bertscore_f1": 0.4761
+    },
+    {
+      "query": "I need to correct purchase {{Order Number}}",
+      "generated": "To correct purchase with the order number {{Order Number}}, follow these steps:\n1. Log in to your account on our website.\n2. Go to your order history ",
+      "reference": "Thank you for informing us about the need to correct your purchase with order number {{Order Number}}. We understand the importance of ensuring your o",
+      "cosine_similarity": 0.8207,
+      "bertscore_f1": 0.1416
+    },
+    {
+      "query": "assistance to see the ETA of order {{Order Number}}",
+      "generated": "To see the ETA of order {{Order Number}}, you can log in to your account on our website, go to the \"Order History\" section, locate the specific order ",
+      "reference": "Thank you for reaching out! I'm here to assist you with checking the estimated time of arrival (ETA) for your order with the order number {{Order Numb",
+      "cosine_similarity": 0.8582,
+      "bertscore_f1": 0.3971
+    },
+    {
+      "query": "want assistance solving a payment issue",
+      "generated": "I'm here to offer my support in resolving the payment problem you're experiencing. Please provide me with more details about the issue you're facing, ",
+      "reference": "Thank you for trusting to us for assistance in resolving the payment issue you're facing. I understand that encountering payment problems can be frust",
+      "cosine_similarity": 0.9202,
+      "bertscore_f1": 0.4864
+    },
+    {
+      "query": "how can I speak with an agent?",
+      "generated": "To speak with an agent, you can follow these steps:\n\n1. Visit our website and navigate to the 'Contact Us' page.\n2. Look for the option to chat with a",
+      "reference": "I see what you mean! I'm on the same page that you are looking for assistance with speaking to an agent. I'm here to help you with that. To connect wi",
+      "cosine_similarity": 0.9032,
+      "bertscore_f1": 0.2494
+    },
+    {
+      "query": "wanna look for the bill #85632 how do i do it",
+      "generated": "To look for the bill #85632, you can log in to your account on our website and navigate to the \"Billing\" or \"Account\" section. Look for a tab or menu ",
+      "reference": "Thank you for reaching out! I completely understand your need to locate your bill with the number #{{Invoice Number}}. Let me guide you through the pr",
+      "cosine_similarity": 0.8831,
+      "bertscore_f1": 0.4016
+    },
+    {
+      "query": "tell me about subscribing to your corporate newsletter",
+      "generated": "To subscribe to our corporate newsletter, you can visit our website and navigate to the newsletter subscription page. There, you'll find a form where ",
+      "reference": "Unquestionably! Let me give you all the details about subscribing to our corporate newsletter. By subscribing, you'll receive regular updates on compa",
+      "cosine_similarity": 0.9685,
+      "bertscore_f1": 0.7427
+    },
+    {
+      "query": "need help to obtain my money back",
+      "generated": "I'm here to help you obtain your money back. To get started, please provide me with some additional details about your purchase and the reason for see",
+      "reference": "I've observed that you're seeking assistance in obtaining a refund for your money. I apologize for any inconvenience you may have faced in this situat",
+      "cosine_similarity": 0.908,
+      "bertscore_f1": 0.5298
+    },
+    {
+      "query": "where could I reset my profile PIN code?",
+      "generated": "To reset your profile PIN code, follow these steps:\n\n1. Log in to your account using your current PIN code.\n2. Once you're logged in, navigate to the ",
+      "reference": "Definitely! I'm here to assist you in resetting your profile PIN code, ensuring a smooth and secure process.\n\nTo reset your PIN code, please follow th",
+      "cosine_similarity": 0.9035,
+      "bertscore_f1": 0.4749
+    },
+    {
+      "query": "want assistance seeing bill #37777",
+      "generated": "To see bill #37777, you can log into your account and navigate to the \"Invoices\" section. From there, you should be able to find the bill with the num",
+      "reference": "Grateful you reached out to us for assistance with viewing the bill with the number #{{Invoice Number}}. I understand how important it is to access yo",
+      "cosine_similarity": 0.7971,
+      "bertscore_f1": 0.1612
+    },
+    {
+      "query": "I have to notify of a payment error",
+      "generated": "To notify us of a payment error, you can reach out to our customer support team either through our website's live chat or by phone. They have the expe",
+      "reference": "Thank you for bringing this payment error to our attention. Your proactive approach in notifying us is greatly appreciated. To ensure that your notifi",
+      "cosine_similarity": 0.8376,
+      "bertscore_f1": 0.2659
+    },
+    {
+      "query": "there are issues setting up the delivery address",
+      "generated": "To resolve issues with setting up the delivery address, please follow these steps:\n\n1. Ensure that you are logged in to your account.\n2. Navigate to t",
+      "reference": "I acknowledge that you're encountering issues while setting up the delivery address. I apologize for any inconvenience this may have caused. To better",
+      "cosine_similarity": 0.8121,
+      "bertscore_f1": 0.1411
+    },
+    {
+      "query": "can I check what delivery options I have?",
+      "generated": "Yes, you can check the delivery options by visiting the website and navigating to the \"Shipping\" or \"Delivery\" section. There, you will find a list of",
+      "reference": "Sure! Let's explore the array of delivery options available for you. Here's a breakdown of our shipping choices:\n\n1. Standard Shipping: Delivered to y",
+      "cosine_similarity": 0.7804,
+      "bertscore_f1": 0.1423
+    },
+    {
+      "query": "how to list your bloody accepted payment methods?",
+      "generated": "To list the accepted payment methods, you can visit the \"Payment Methods\" section on our website or app. There, you will find a comprehensive list of ",
+      "reference": "I appreciate your request for assistance! To view the accepted payment methods at our company, you can follow these simple steps:\n\n1. Visit our websit",
+      "cosine_similarity": 0.8533,
+      "bertscore_f1": 0.2869
+    },
+    {
+      "query": "wanna check the status of purchase {{Order Number}} how to do it",
+      "generated": "To check the status of purchase {{Order Number}}, please visit our website and log into your account. Once logged in, navigate to the \"Order History\" ",
+      "reference": "Thank you for reaching out! I'm glad you're taking an active interest in staying updated on your purchase. To check the status of purchase {{Order Num",
+      "cosine_similarity": 0.9274,
+      "bertscore_f1": 0.4624
+    },
+    {
+      "query": "is there an e-mail to leave a review for a service",
+      "generated": "While there isn't an email specifically dedicated to receiving reviews, you can visit our website, navigate to the \"Contact Us\" or \"Feedback\" page, fi",
+      "reference": "We appreciate your enthusiasm to leave a review for our service! Instead of an email, we have a dedicated platform on our website where you can easily",
+      "cosine_similarity": 0.7956,
+      "bertscore_f1": 0.2823
+    },
+    {
+      "query": "can you help me to open a freemium account?",
+      "generated": "Yes, I can help you open a freemium account. To get started, please visit our website and click on the \"Open an Account\" button. If you have any quest",
+      "reference": "I'll make it happen! I'd be delighted to assist you in opening a freemium account. To get started, could you please provide me with your full name, em",
+      "cosine_similarity": 0.8384,
+      "bertscore_f1": 0.2913
+    },
+    {
+      "query": "I try to obtain refunds",
+      "generated": "I can tell that you have been attempting to obtain refunds, and I'm here to assist you in the process. To begin, could you please provide me with more",
+      "reference": "I can tell that you have been attempting to obtain refunds, and I'm here to assist you in the process. Obtaining refunds can sometimes be challenging,",
+      "cosine_similarity": 0.9794,
+      "bertscore_f1": 0.8868
+    },
+    {
+      "query": "help checking in which cases can I ask for reimbursements",
+      "generated": "You can ask for reimbursements in the following cases:\n\n1. Product or Service Defects\n2. Cancellation within the Grace Period\n3. Unauthorized Charges\n",
+      "reference": "I'm happy to help! I understand your desire to learn about the specific situations where you can request reimbursements. Here's a breakdown to provide",
+      "cosine_similarity": 0.8548,
+      "bertscore_f1": 0.1501
+    },
+    {
+      "query": "could you help me checking the refund current status?",
+      "generated": "To check the current status of your refund, log into your account on our website and navigate to the \"My Orders\" or \"Order History\" section. There, yo",
+      "reference": "I understand your desire to check the current status of your refund. Let me quickly assist you with that. May I kindly ask for some information regard",
+      "cosine_similarity": 0.8469,
+      "bertscore_f1": 0.2603
+    },
+    {
+      "query": "where to check how long the shipping takes?",
+      "generated": "To check how long the shipping takes, you can visit our website and enter your [ORDER_NUMBER] or [PLACEHOLDER] in the designated tracking section. You",
+      "reference": "We understand your curiosity about tracking the duration of your shipment. To provide you with accurate information, could you please share the {{Trac",
+      "cosine_similarity": 0.8435,
+      "bertscore_f1": 0.3038
+    },
+    {
+      "query": "can you help me to submit a different delivery address?",
+      "generated": "Yes, I can help you submit a different delivery address. To proceed, please follow these steps:\n\n1. Log in to your account.\n2. Navigate to the 'My Acc",
+      "reference": "I'll take care of it! I'm here to assist you in submitting a different delivery address. To proceed with this request, you can follow these steps:\n\n1.",
+      "cosine_similarity": 0.9374,
+      "bertscore_f1": 0.797
+    },
+    {
+      "query": "i can check the status of my company newsletter subscription",
+      "generated": "Absolutely! You can check the status of your company newsletter subscription by visiting our website and logging in to your account. Once logged in, n",
+      "reference": "Absolutely! I'm glad to hear that you would like to check the status of your company newsletter subscription. Our customer service team will be able t",
+      "cosine_similarity": 0.9379,
+      "bertscore_f1": 0.6224
+    },
+    {
+      "query": "i have issues editing the address",
+      "generated": "To resolve your issue with editing the address, please follow these steps:\n1. Log in to your account.\n2. Go to the \"Account Settings\" or \"Profile\" sec",
+      "reference": "I'm sorry to hear that you're experiencing difficulties with editing your address. Don't worry, I'm here to help! Could you please provide me with mor",
+      "cosine_similarity": 0.851,
+      "bertscore_f1": 0.2988
+    },
+    {
+      "query": "i do not know what i have to do to edit the user information",
+      "generated": "To edit your user information, you can log in to your account on our website or mobile app. Then, navigate to the \"Account Settings\" or \"Profile\" sect",
+      "reference": "How utterly exhilarating it is to embark on the quest of editing your esteemed user information!I am here to serve as your knowledgeable companion thr",
+      "cosine_similarity": 0.9135,
+      "bertscore_f1": 0.5132
+    },
+    {
+      "query": "speak with human agent",
+      "generated": "To speak with a human agent, you can follow these steps:\n\n1. Navigate to the \"Contact Us\" page on our website.\n2. Choose the contact option that suits",
+      "reference": "We're listening! I'm keyed into the fact that you would like to speak with a human agent directly. I'm here to help you with that. To connect you with",
+      "cosine_similarity": 0.8305,
+      "bertscore_f1": 0.1473
+    },
+    {
+      "query": "I need assistance to shop several of your product",
+      "generated": "We are delighted to assist you in shopping several of our products! To get started, could you please let us know which specific products you are looki",
+      "reference": "We are delighted to assist you in shopping several of our products! It's fantastic to see your interest in our offerings. Our team is ready to provide",
+      "cosine_similarity": 0.9512,
+      "bertscore_f1": 0.8181
+    },
+    {
+      "query": "I need assistance to file a consumer claim",
+      "generated": "To file a consumer claim, gather any relevant documents such as receipts, order numbers, or proof of purchase. Then, contact our customer support team",
+      "reference": "I understand the urgency and importance of filing a consumer claim, and I'm here to provide the guidance and support you need. Filing a claim can be a",
+      "cosine_similarity": 0.8217,
+      "bertscore_f1": 0.3093
+    },
+    {
+      "query": "edit information on premium account",
+      "generated": "To edit the information on your premium account, I recommend accessing your account settings through our secure [PLACEHOLDER]. From there, you'll have",
+      "reference": "How remarkable it is to embrace the splendid journey of editing the information on your esteemed {{Account Category}} account!I am thrilled to assist ",
+      "cosine_similarity": 0.8066,
+      "bertscore_f1": 0.227
+    },
+    {
+      "query": "i have got to modify my shipping address how to do it",
+      "generated": "To modify your shipping address, you can follow these simple steps:\n1. Log in to your account on our website.\n2. Go to your account settings or profil",
+      "reference": "No worries! To modify your shipping address, you can follow these simple steps:\n1. Log in to your account on our website.\n2. Go to your account settin",
+      "cosine_similarity": 0.982,
+      "bertscore_f1": 0.9575
+    },
+    {
+      "query": "I want to delete a {{Account Type}} account, help me",
+      "generated": "To delete a [ACCOUNT_TYPE] account, you can follow these steps:\n\n1. Log in to your account on our website or app.\n2. Navigate to the account settings ",
+      "reference": "We're here for you to us for assistance with deleting your {{Account Type}} account. I understand that you have made the decision to delete your accou",
+      "cosine_similarity": 0.8487,
+      "bertscore_f1": 0.1634
+    },
+    {
+      "query": "I have got to leave my feedback, I need assistance",
+      "generated": "Happy to help you with leaving your feedback! Your insights are essential to us, as they help us enhance our services and create a better experience f",
+      "reference": "Happy to get your message to us with your feedback! Your insights are essential to us, as they help us enhance our services and create a better experi",
+      "cosine_similarity": 0.9727,
+      "bertscore_f1": 0.8816
+    },
+    {
+      "query": "show cancellation penalty",
+      "generated": "To view the cancellation penalty, please follow these steps:\n1. Visit our website and log in to your account.\n2. Navigate to the \"Billing\" or \"Account",
+      "reference": "Certainly! Allow me to provide you with the details regarding the cancellation penalty.",
+      "cosine_similarity": 0.6929,
+      "bertscore_f1": 0.1488
+    },
+    {
+      "query": "how do i create a freemium account",
+      "generated": "To create a freemium account, you can visit our website and navigate to the account creation page. On that page, you will see an option to create a fr",
+      "reference": "I'll do my best! \ud83c\udf1f I'm delighted to assist you in creating a freemium account. It's a straightforward process that will give you access to a range of ",
+      "cosine_similarity": 0.896,
+      "bertscore_f1": 0.3693
+    },
+    {
+      "query": "how do I file a consumer complaint against your company?",
+      "generated": "To file a consumer complaint against our company, you can reach out to our customer support team via phone, email, or through our website. They will p",
+      "reference": "I've understood you are looking to file a consumer complaint against our company, and I'm here to guide you through the process. Filing a complaint is",
+      "cosine_similarity": 0.9165,
+      "bertscore_f1": 0.6728
+    },
+    {
+      "query": "could ya help me infofming of a sign-up issue",
+      "generated": "We're here to help you inform us about the sign-up issue you're facing. To better assist you, could you please provide more details about the specific",
+      "reference": "We've received your message to us for assistance in informing us about the sign-up issue you're facing. We understand how important it is to address a",
+      "cosine_similarity": 0.9584,
+      "bertscore_f1": 0.8014
+    },
+    {
+      "query": "find information about the lost access key",
+      "generated": "To find information about a lost access key, you can visit the platform's support page or reach out to the customer service team. They can provide you",
+      "reference": "I'm on it! I completely understand your need to find information about the lost access key. Losing access to your key can be frustrating, but rest ass",
+      "cosine_similarity": 0.8584,
+      "bertscore_f1": 0.3387
+    },
+    {
+      "query": "I don't know what I need to do to get the bill #12588",
+      "generated": "To get bill #12588, please log in to your account on our website or mobile app. Once you're logged in, navigate to the \"Billing\" or \"Invoices\" section",
+      "reference": "Unquestionably! I understand that you are unsure of the steps to retrieve the bill with number #{{Invoice Number}}. Let me guide you through the proce",
+      "cosine_similarity": 0.8058,
+      "bertscore_f1": 0.4755
+    },
+    {
+      "query": "I do not know what to do to delete a standard account",
+      "generated": "To delete a standard account, you can follow these steps:\n\n1. Log in to your account on our website.\n2. Navigate to the account settings or profile se",
+      "reference": "Glad you got in touch to us for assistance with deleting your standard account. I understand that you may be unsure about the necessary steps, but res",
+      "cosine_similarity": 0.9525,
+      "bertscore_f1": 0.4353
+    },
+    {
+      "query": "I don't know what to do to call customer support",
+      "generated": "To call our customer support, you can dial our dedicated helpline at [PLACEHOLDER]. Our friendly agents will be ready to assist you with any questions",
+      "reference": "Honored to assist! I'm clued in that you're unsure about how to call our customer support team. Don't worry; I'm here to guide you. To contact our cus",
+      "cosine_similarity": 0.8224,
+      "bertscore_f1": 0.4141
+    },
+    {
+      "query": "add something to order {{Order Number}}",
+      "generated": "To add something to order [ORDER_NUMBER], you can follow these steps:\n\n1. Log in to your account on our website or mobile app.\n2. Navigate to your ord",
+      "reference": "I've been informed that you need assistance with adding something to your order with the number {{Order Number}}. We are here to help make the necessa",
+      "cosine_similarity": 0.8384,
+      "bertscore_f1": 0.1451
+    },
+    {
+      "query": "can you help me to buy a damn article?",
+      "generated": "Yes, I can help you buy a specific article! To get started, please provide me with more details about the article you'd like to buy, such as the name,",
+      "reference": "We're here to assist you in purchasing the article you're interested in! It's great to see your enthusiasm, and I can assure you that we'll make this ",
+      "cosine_similarity": 0.8859,
+      "bertscore_f1": 0.3645
+    },
+    {
+      "query": "can i check at what time i can reach customer support",
+      "generated": "Our customer support is available from [PLACEHOLDER]. You can check the specific timings by visiting our website's contact page or referring to the cu",
+      "reference": "Thank you for trusting us! I'm fully aware of you are looking for information about the timings when our customer support team is available. Our custo",
+      "cosine_similarity": 0.8503,
+      "bertscore_f1": 0.1578
+    },
+    {
+      "query": "seeing your money back policy",
+      "generated": "To see our money back policy, please visit our website and navigate to the \"Refund Policy\" section, usually found in the footer or under the \"Terms an",
+      "reference": "I appreciate your interest in understanding our money back policy. At our company, we strive to provide a transparent and customer-centric approach to",
+      "cosine_similarity": 0.7944,
+      "bertscore_f1": 0.0414
+    },
+    {
+      "query": "I bought some items, help canceling order {{Order Number}}",
+      "generated": "To cancel your purchase with order number {{Order Number}}, please follow these steps:\n\n1. Log in to your account using your credentials.\n2. Navigate ",
+      "reference": "I can tell that you've made a purchase and now you need assistance with canceling order number {{Order Number}}. Allow me to guide you through the pro",
+      "cosine_similarity": 0.8015,
+      "bertscore_f1": 0.1238
+    },
+    {
+      "query": "could you help me inform of a problem with registrations?",
+      "generated": "Yes, I can help you inform of a problem with registrations. To do so, please provide more details about the specific issue you're facing. This will en",
+      "reference": "We appreciate you reaching out to inform us about the problem you encountered during the registration process. Your feedback is valuable in helping us",
+      "cosine_similarity": 0.8446,
+      "bertscore_f1": 0.2878
+    },
+    {
+      "query": "I want assistance seeing your accepted payment methods",
+      "generated": "To view our accepted payment methods, please follow these simple steps:\n\n1. Visit our website and navigate to the 'Payment Methods' section.\n2. On the",
+      "reference": "Sure! I'm delighted to assist you in exploring the payment methods we accept. Our objective is to provide you with flexibility and convenience. Here a",
+      "cosine_similarity": 0.7956,
+      "bertscore_f1": 0.1987
+    },
+    {
+      "query": "I am trying to change to the standard account",
+      "generated": "To change to the standard account, follow these steps:\n\n1. Access Your Account: Log into our platform using your credentials.\n2. Account Settings: Onc",
+      "reference": "I'm thrilled that you're considering switching to our {{Account Type}} account! Let's make this transition smooth and hassle-free for you:\n\n1. Access ",
+      "cosine_similarity": 0.8915,
+      "bertscore_f1": 0.5399
+    },
+    {
+      "query": "I don't knos how to check when my package is going to arrive",
+      "generated": "To check when your package is going to arrive, you can visit our website and navigate to the \"Order Status\" or \"Track Package\" section. Once there, yo",
+      "reference": "We completely understand your concern about tracking the delivery status of your package. To assist you with this, could you please provide us with th",
+      "cosine_similarity": 0.8108,
+      "bertscore_f1": 0.2533
+    },
+    {
+      "query": "i have got to check the damn withdrawal penalty",
+      "generated": "To check the withdrawal penalty, please log in to your account and navigate to the \"Penalties\" or \"Fees\" section. You will find the relevant informati",
+      "reference": "Indeed! To view the withdrawal penalty, please log in to your account and navigate to the \"Penalties\" or \"Fees\" section. You will find the relevant in",
+      "cosine_similarity": 0.9517,
+      "bertscore_f1": 0.8963
+    }
+  ],
+  "raw_results": [
+    {
+      "query": "I have to change to the {{Account Type}} account",
+      "ground_truth_intent": "switch_account",
+      "ground_truth_response": "I'll make it happen! I appreciate your decision to switch to our {{Account Type}} account. Allow me to guide you through the process and ensure a seamless transition:\n\n1. **Sign In**: Begin by logging into our platform using your account credentials.\n2. **Account Settings**: Once logged in, navigate",
+      "retrieved_intents": [
+        "switch_account",
+        "switch_account",
+        "switch_account",
+        "switch_account",
+        "switch_account"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "513b4bdd8b1cd43e",
+          "score": 0.7666,
+          "intent": "switch_account"
+        },
+        {
+          "chunk_id": "7d8d1580eb7d3a35",
+          "score": 0.7658,
+          "intent": "switch_account"
+        },
+        {
+          "chunk_id": "7bd19622290c10fe",
+          "score": 0.7624,
+          "intent": "switch_account"
+        },
+        {
+          "chunk_id": "943bffeb763f8a69",
+          "score": 0.7618,
+          "intent": "switch_account"
+        },
+        {
+          "chunk_id": "faq_switch_account",
+          "score": 0.7615,
+          "intent": "switch_account"
+        }
+      ],
+      "generated_answer": "To change to the [ACCOUNT_TYPE] account, follow these steps:\n\n1. Log into your account using your credentials.\n2. Navigate to the account settings or profile section.\n3. Look for an option labeled \"Switch Account Type\" or \"Upgrade\".\n4. Select the \"[ACCOUNT_TYPE] Account\" option from the list presented.\n5. Follow the on-screen instructions to complete the switch.\n\nIf you encounter any difficulties or have any additional questions, please don't hesitate to reach out. I'm here to ensure a smooth transition to your desired [ACCOUNT_TYPE] account."
+    },
+    {
+      "query": "I need to correct purchase {{Order Number}}",
+      "ground_truth_intent": "change_order",
+      "ground_truth_response": "Thank you for informing us about the need to correct your purchase with order number {{Order Number}}. We understand the importance of ensuring your order is accurate and satisfactory. To assist you better, could you please provide more details regarding the corrections you would like to make? By un",
+      "retrieved_intents": [
+        "change_order",
+        "change_order",
+        "change_order",
+        "change_order",
+        "change_order"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "f0f497a8b87abc97",
+          "score": 0.8595,
+          "intent": "change_order"
+        },
+        {
+          "chunk_id": "6e97f1e85c329823",
+          "score": 0.8393,
+          "intent": "change_order"
+        },
+        {
+          "chunk_id": "30c556873e85d243",
+          "score": 0.8154,
+          "intent": "change_order"
+        },
+        {
+          "chunk_id": "361e61a2b0716b44",
+          "score": 0.815,
+          "intent": "change_order"
+        },
+        {
+          "chunk_id": "515bfd46bd346152",
+          "score": 0.8145,
+          "intent": "change_order"
+        }
+      ],
+      "generated_answer": "To correct purchase with the order number {{Order Number}}, follow these steps:\n1. Log in to your account on our website.\n2. Go to your order history or purchase history section.\n3. Locate the purchase with the order number {{Order Number}}.\n4. Select the option to edit or make corrections to the purchase.\n5. Follow the prompts or instructions provided to make the necessary corrections.\n6. Review the changes and ensure that all the details are accurate.\n7. Save or submit the corrections.\n\nIf you encounter any difficulties or require further assistance, please don't hesitate to reach out to our customer support team. They are available [PLACEHOLDER] at [PLACEHOLDER] or through the Live Chat on our website at [PLACEHOLDER]. We're here to ensure that your purchase is exactly as you intended it to be."
+    },
+    {
+      "query": "assistance to see the ETA of order {{Order Number}}",
+      "ground_truth_intent": "track_order",
+      "ground_truth_response": "Thank you for reaching out! I'm here to assist you with checking the estimated time of arrival (ETA) for your order with the order number {{Order Number}}. Tracking the ETA helps you stay informed about when your order is expected to arrive. To view the ETA for order number {{Order Number}}, I recom",
+      "retrieved_intents": [
+        "track_order",
+        "track_order",
+        "track_order",
+        "track_order",
+        "track_order"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "04f96b1acdca8d17",
+          "score": 0.7945,
+          "intent": "track_order"
+        },
+        {
+          "chunk_id": "39afb974a6dd9b67",
+          "score": 0.7891,
+          "intent": "track_order"
+        },
+        {
+          "chunk_id": "1310ee90b1febd7e",
+          "score": 0.7887,
+          "intent": "track_order"
+        },
+        {
+          "chunk_id": "6a8f1e6b17c701c7",
+          "score": 0.7863,
+          "intent": "track_order"
+        },
+        {
+          "chunk_id": "bdad216a0c572506",
+          "score": 0.7776,
+          "intent": "track_order"
+        }
+      ],
+      "generated_answer": "To see the ETA of order {{Order Number}}, you can log in to your account on our website, go to the \"Order History\" section, locate the specific order with the order number {{Order Number}}, and click on the order details to view the ETA. If you encounter any issues or need further assistance, feel free to ask."
+    },
+    {
+      "query": "want assistance solving a payment issue",
+      "ground_truth_intent": "payment_issue",
+      "ground_truth_response": "Thank you for trusting to us for assistance in resolving the payment issue you're facing. I understand that encountering payment problems can be frustrating, and I'm here to help you navigate through this situation. To provide you with the best solution, could you please provide more details about t",
+      "retrieved_intents": [
+        "payment_issue",
+        "payment_issue",
+        "payment_issue",
+        "payment_issue",
+        "payment_issue"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "fb6e7f0105453cd6",
+          "score": 0.8249,
+          "intent": "payment_issue"
+        },
+        {
+          "chunk_id": "351ef1ecc4db6f9c",
+          "score": 0.8247,
+          "intent": "payment_issue"
+        },
+        {
+          "chunk_id": "650febafd02cde48",
+          "score": 0.8237,
+          "intent": "payment_issue"
+        },
+        {
+          "chunk_id": "a8e57a8c0d6cce0c",
+          "score": 0.8218,
+          "intent": "payment_issue"
+        },
+        {
+          "chunk_id": "435806f54b1a7bf9",
+          "score": 0.8213,
+          "intent": "payment_issue"
+        }
+      ],
+      "generated_answer": "I'm here to offer my support in resolving the payment problem you're experiencing. Please provide me with more details about the issue you're facing, such as the specific error message or any other relevant information. With your assistance, we can work together to identify the root cause and implement a solution. Your feedback is valuable, and we appreciate your patience as we tackle this payment problem."
+    },
+    {
+      "query": "how can I speak with an agent?",
+      "ground_truth_intent": "contact_human_agent",
+      "ground_truth_response": "I see what you mean! I'm on the same page that you are looking for assistance with speaking to an agent. I'm here to help you with that. To connect with a live agent, you can simply click on the \"Chat\" button on our website. Our team of dedicated agents is available to assist you with any questions ",
+      "retrieved_intents": [
+        "contact_human_agent",
+        "contact_human_agent",
+        "contact_human_agent",
+        "contact_human_agent",
+        "contact_human_agent"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "c698245bd6a980f6",
+          "score": 0.8473,
+          "intent": "contact_human_agent"
+        },
+        {
+          "chunk_id": "aa7c6e05939cdaa7",
+          "score": 0.8373,
+          "intent": "contact_human_agent"
+        },
+        {
+          "chunk_id": "4e709ee1b2df8321",
+          "score": 0.8237,
+          "intent": "contact_human_agent"
+        },
+        {
+          "chunk_id": "0a4b0593ed38056a",
+          "score": 0.8233,
+          "intent": "contact_human_agent"
+        },
+        {
+          "chunk_id": "0190264938a7c243",
+          "score": 0.8233,
+          "intent": "contact_human_agent"
+        }
+      ],
+      "generated_answer": "To speak with an agent, you can follow these steps:\n\n1. Visit our website and navigate to the 'Contact Us' page.\n2. Look for the option to chat with a live agent or speak with a representative.\n3. Click on the chat icon or the phone number provided.\n4. Enter any necessary information or follow the prompts, if applicable.\n5. Wait for a short moment as we connect you with the right person.\n\nAlternatively, you can also send us an email at [EMAIL] or reach out to us on our social media channels for assistance. Our team is here to help and will respond to your inquiry as soon as possible."
+    },
+    {
+      "query": "wanna look for the bill #85632 how do i do it",
+      "ground_truth_intent": "check_invoice",
+      "ground_truth_response": "Thank you for reaching out! I completely understand your need to locate your bill with the number #{{Invoice Number}}. Let me guide you through the process. To find your bill, you can log in to your account on our website and navigate to the \"Billing\" section. Alternatively, you can contact our cust",
+      "retrieved_intents": [
+        "check_invoice",
+        "check_invoice",
+        "check_invoice",
+        "check_invoice",
+        "check_invoice"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "bb7cc0efb7eaf119",
+          "score": 0.7907,
+          "intent": "check_invoice"
+        },
+        {
+          "chunk_id": "391104693600af5f",
+          "score": 0.7877,
+          "intent": "check_invoice"
+        },
+        {
+          "chunk_id": "b97fc8b2f9e007db",
+          "score": 0.7853,
+          "intent": "check_invoice"
+        },
+        {
+          "chunk_id": "67223e6078358828",
+          "score": 0.7817,
+          "intent": "check_invoice"
+        },
+        {
+          "chunk_id": "b75a50f69338de62",
+          "score": 0.7758,
+          "intent": "check_invoice"
+        }
+      ],
+      "generated_answer": "To look for the bill #85632, you can log in to your account on our website and navigate to the \"Billing\" or \"Account\" section. Look for a tab or menu option that mentions \"Bills,\" \"Invoices,\" or something similar. Click on it to access your bill. If you're unable to locate it, you can also reach out to our customer support team, and they'll be more than happy to assist you."
+    },
+    {
+      "query": "tell me about subscribing to your corporate newsletter",
+      "ground_truth_intent": "newsletter_subscription",
+      "ground_truth_response": "Unquestionably! Let me give you all the details about subscribing to our corporate newsletter. By subscribing, you'll receive regular updates on company news, product launches, industry insights, and exclusive offers. To get started, simply visit our website and navigate to the newsletter subscripti",
+      "retrieved_intents": [
+        "newsletter_subscription",
+        "newsletter_subscription",
+        "newsletter_subscription",
+        "newsletter_subscription",
+        "newsletter_subscription"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "c71a2b0f2c97cc03",
+          "score": 0.8753,
+          "intent": "newsletter_subscription"
+        },
+        {
+          "chunk_id": "9b859f256d6ac240",
+          "score": 0.8737,
+          "intent": "newsletter_subscription"
+        },
+        {
+          "chunk_id": "9b17d4212ae6691c",
+          "score": 0.8733,
+          "intent": "newsletter_subscription"
+        },
+        {
+          "chunk_id": "1019fe5799a2a270",
+          "score": 0.8654,
+          "intent": "newsletter_subscription"
+        },
+        {
+          "chunk_id": "1c3ece69ff8a2bae",
+          "score": 0.8615,
+          "intent": "newsletter_subscription"
+        }
+      ],
+      "generated_answer": "To subscribe to our corporate newsletter, you can visit our website and navigate to the newsletter subscription page. There, you'll find a form where you can enter your email address to sign up. By subscribing, you'll receive regular updates on company news, product launches, industry insights, and exclusive offers. We prioritize your privacy and will only use your email address to send you the newsletter. You can always unsubscribe whenever you want by clicking on the unsubscribe link provided in every newsletter email."
+    },
+    {
+      "query": "need help to obtain my money back",
+      "ground_truth_intent": "get_refund",
+      "ground_truth_response": "I've observed that you're seeking assistance in obtaining a refund for your money. I apologize for any inconvenience you may have faced in this situation. Rest assured, I am here to help guide you through the process and ensure you receive the resolution you deserve. To get started, could you please",
+      "retrieved_intents": [
+        "get_refund",
+        "get_refund",
+        "get_refund",
+        "get_refund",
+        "get_refund"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "cd311b355fc880df",
+          "score": 0.7989,
+          "intent": "get_refund"
+        },
+        {
+          "chunk_id": "36f2930df1d354d2",
+          "score": 0.7961,
+          "intent": "get_refund"
+        },
+        {
+          "chunk_id": "7cbb4aa39cd902cd",
+          "score": 0.7948,
+          "intent": "get_refund"
+        },
+        {
+          "chunk_id": "7d380becfebecbbc",
+          "score": 0.7912,
+          "intent": "get_refund"
+        },
+        {
+          "chunk_id": "6ad834ca58712796",
+          "score": 0.7909,
+          "intent": "get_refund"
+        }
+      ],
+      "generated_answer": "I'm here to help you obtain your money back. To get started, please provide me with some additional details about your purchase and the reason for seeking a refund. This will help me better understand your specific situation and provide you with the most appropriate solution. You can reach out to our customer support team by phone or through the Live Chat on our website for assistance."
+    },
+    {
+      "query": "where could I reset my profile PIN code?",
+      "ground_truth_intent": "recover_password",
+      "ground_truth_response": "Definitely! I'm here to assist you in resetting your profile PIN code, ensuring a smooth and secure process.\n\nTo reset your PIN code, please follow these steps:\n\n1. Visit the \"{{Settings}}\" section of your profile.\n2. Look for the \"{{Security}}\" tab or something similar.\n3. Within the security setti",
+      "retrieved_intents": [
+        "recover_password",
+        "recover_password",
+        "recover_password",
+        "recover_password",
+        "recover_password"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "7a7e56ca46979287",
+          "score": 0.8877,
+          "intent": "recover_password"
+        },
+        {
+          "chunk_id": "c36b0e512c792933",
+          "score": 0.8607,
+          "intent": "recover_password"
+        },
+        {
+          "chunk_id": "f3dfc3a89aef67c6",
+          "score": 0.8545,
+          "intent": "recover_password"
+        },
+        {
+          "chunk_id": "45ebc90e6ea95e2f",
+          "score": 0.8525,
+          "intent": "recover_password"
+        },
+        {
+          "chunk_id": "d2ecd6c375557906",
+          "score": 0.8497,
+          "intent": "recover_password"
+        }
+      ],
+      "generated_answer": "To reset your profile PIN code, follow these steps:\n\n1. Log in to your account using your current PIN code.\n2. Once you're logged in, navigate to the account settings or profile section of the platform.\n3. Look for the \"PIN code settings\" or a similar option. Click on it to proceed.\n4. Inside the PIN code settings, you should have an option to reset or change your PIN code.\n5. Follow the on-screen instructions to complete the PIN code reset process."
+    },
+    {
+      "query": "want assistance seeing bill #37777",
+      "ground_truth_intent": "check_invoice",
+      "ground_truth_response": "Grateful you reached out to us for assistance with viewing the bill with the number #{{Invoice Number}}. I understand how important it is to access your invoice and I'm here to help. To assist you accurately, could you please provide me with some additional information? Specifically, I would need th",
+      "retrieved_intents": [
+        "check_invoice",
+        "check_invoice",
+        "check_invoice",
+        "check_invoice",
+        "check_invoice"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "abdae09c31013e20",
+          "score": 0.7841,
+          "intent": "check_invoice"
+        },
+        {
+          "chunk_id": "49acd5c0fb78efb5",
+          "score": 0.7699,
+          "intent": "check_invoice"
+        },
+        {
+          "chunk_id": "97c2ce49126999d2",
+          "score": 0.7592,
+          "intent": "check_invoice"
+        },
+        {
+          "chunk_id": "cfc3c473cc59be85",
+          "score": 0.7588,
+          "intent": "check_invoice"
+        },
+        {
+          "chunk_id": "2e2f3208eb7c359b",
+          "score": 0.7583,
+          "intent": "check_invoice"
+        }
+      ],
+      "generated_answer": "To see bill #37777, you can log into your account and navigate to the \"Invoices\" section. From there, you should be able to find the bill with the number #[PLACEHOLDER]. If you need any further assistance or have any other questions, please feel free to ask."
+    },
+    {
+      "query": "I have to notify of a payment error",
+      "ground_truth_intent": "payment_issue",
+      "ground_truth_response": "Thank you for bringing this payment error to our attention. Your proactive approach in notifying us is greatly appreciated. To ensure that your notification reaches the appropriate department, could you kindly provide some additional details regarding the payment error? Specifically, if you could le",
+      "retrieved_intents": [
+        "payment_issue",
+        "payment_issue",
+        "payment_issue",
+        "payment_issue",
+        "payment_issue"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "94021446541c5ea4",
+          "score": 0.8231,
+          "intent": "payment_issue"
+        },
+        {
+          "chunk_id": "54c5e1a0b4ced002",
+          "score": 0.8155,
+          "intent": "payment_issue"
+        },
+        {
+          "chunk_id": "a0f750ece9406a40",
+          "score": 0.8058,
+          "intent": "payment_issue"
+        },
+        {
+          "chunk_id": "6bd77ac2d2840241",
+          "score": 0.8033,
+          "intent": "payment_issue"
+        },
+        {
+          "chunk_id": "0a486a5b2ed6dacd",
+          "score": 0.8015,
+          "intent": "payment_issue"
+        }
+      ],
+      "generated_answer": "To notify us of a payment error, you can reach out to our customer support team either through our website's live chat or by phone. They have the expertise to assist you further and guide you through the process of reporting the payment error. Providing them with detailed information about the error can help speed up the resolution."
+    },
+    {
+      "query": "there are issues setting up the delivery address",
+      "ground_truth_intent": "set_up_shipping_address",
+      "ground_truth_response": "I acknowledge that you're encountering issues while setting up the delivery address. I apologize for any inconvenience this may have caused. To better assist you, could you please provide more specific details about the problems you're facing? It would greatly help us in identifying the root cause a",
+      "retrieved_intents": [
+        "set_up_shipping_address",
+        "set_up_shipping_address",
+        "set_up_shipping_address",
+        "set_up_shipping_address",
+        "set_up_shipping_address"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "cd1146a5bd104d3f",
+          "score": 0.7989,
+          "intent": "set_up_shipping_address"
+        },
+        {
+          "chunk_id": "e9b82cb28b5076fa",
+          "score": 0.7911,
+          "intent": "set_up_shipping_address"
+        },
+        {
+          "chunk_id": "3e3f0cf1d85b052e",
+          "score": 0.7813,
+          "intent": "set_up_shipping_address"
+        },
+        {
+          "chunk_id": "a885ba750a7f5cf8",
+          "score": 0.7808,
+          "intent": "set_up_shipping_address"
+        },
+        {
+          "chunk_id": "137ca6f6a1bd9d9f",
+          "score": 0.7756,
+          "intent": "set_up_shipping_address"
+        }
+      ],
+      "generated_answer": "To resolve issues with setting up the delivery address, please follow these steps:\n\n1. Ensure that you are logged in to your account.\n2. Navigate to the \"My Account\" or \"Profile\" section of the website.\n3. Look for the option that says \"Shipping Addresses\" or something similar.\n4. Click on it to access your shipping address settings.\n5. If you don't see an address listed, click on the \"Add New Address\" button.\n6. Fill in the required fields with the details of your delivery address.\n7. Double-check the information for any errors or typos.\n8. Once you are satisfied with the address, click \"Save\" or \"Submit\" to confirm.\n\nIf you encounter any specific error messages or unexpected behavior, please provide more details about the troubles you are facing. This will help me assist you more effectively."
+    },
+    {
+      "query": "can I check what delivery options I have?",
+      "ground_truth_intent": "delivery_options",
+      "ground_truth_response": "Sure! Let's explore the array of delivery options available for you. Here's a breakdown of our shipping choices:\n\n1. Standard Shipping: Delivered to your doorstep within {{Date Range}} business days. A reliable option if you're not in a rush.\n2. Expedited Shipping: Get your items swiftly in just {{D",
+      "retrieved_intents": [
+        "delivery_options",
+        "delivery_options",
+        "delivery_options",
+        "delivery_options",
+        "delivery_options"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "d0d70c682abbcef5",
+          "score": 0.8338,
+          "intent": "delivery_options"
+        },
+        {
+          "chunk_id": "6724d3c1e6ed519a",
+          "score": 0.8213,
+          "intent": "delivery_options"
+        },
+        {
+          "chunk_id": "0cfa346344b551e8",
+          "score": 0.8193,
+          "intent": "delivery_options"
+        },
+        {
+          "chunk_id": "4daf996e62053c39",
+          "score": 0.8058,
+          "intent": "delivery_options"
+        },
+        {
+          "chunk_id": "e83e61337fbf5ebc",
+          "score": 0.7995,
+          "intent": "delivery_options"
+        }
+      ],
+      "generated_answer": "Yes, you can check the delivery options by visiting the website and navigating to the \"Shipping\" or \"Delivery\" section. There, you will find a list of available delivery options with their corresponding details, including estimated delivery times and any additional charges if applicable. Take a moment to review the options and select the one that best suits your needs. If you encounter any difficulties or have any questions, feel free to reach out to our customer support team for assistance."
+    },
+    {
+      "query": "how to list your bloody accepted payment methods?",
+      "ground_truth_intent": "check_payment_methods",
+      "ground_truth_response": "I appreciate your request for assistance! To view the accepted payment methods at our company, you can follow these simple steps:\n\n1. Visit our website and navigate to the \"Payment\" or \"Checkout\" page.\n2. Look for the section titled \"Accepted Payment Methods\" or similar.\n3. You will find a comprehen",
+      "retrieved_intents": [
+        "check_payment_methods",
+        "check_payment_methods",
+        "check_payment_methods",
+        "check_payment_methods",
+        "check_payment_methods"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "3a3e2ed1868bc8cf",
+          "score": 0.8454,
+          "intent": "check_payment_methods"
+        },
+        {
+          "chunk_id": "8bb8d24479f828db",
+          "score": 0.7994,
+          "intent": "check_payment_methods"
+        },
+        {
+          "chunk_id": "d42df474a7010c54",
+          "score": 0.7897,
+          "intent": "check_payment_methods"
+        },
+        {
+          "chunk_id": "ef542948f87d02dd",
+          "score": 0.7859,
+          "intent": "check_payment_methods"
+        },
+        {
+          "chunk_id": "5661deb2dd0b3c38",
+          "score": 0.7787,
+          "intent": "check_payment_methods"
+        }
+      ],
+      "generated_answer": "To list the accepted payment methods, you can visit the \"Payment Methods\" section on our website or app. There, you will find a comprehensive list of all the accepted payment modalities, each accompanied by a brief description of its features and benefits. If you need more information about a specific payment method, you can select it to view additional details or FAQs."
+    },
+    {
+      "query": "wanna check the status of purchase {{Order Number}} how to do it",
+      "ground_truth_intent": "track_order",
+      "ground_truth_response": "Thank you for reaching out! I'm glad you're taking an active interest in staying updated on your purchase. To check the status of purchase {{Order Number}}, please follow these steps:\n\n1. Visit our website [www.example.com] and log in to your account.\n2. Navigate to the \"Order History\" or \"My Purcha",
+      "retrieved_intents": [
+        "track_order",
+        "track_order",
+        "track_order",
+        "track_order",
+        "track_order"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "ed14e63f934e565a",
+          "score": 0.8763,
+          "intent": "track_order"
+        },
+        {
+          "chunk_id": "480f81d012811e98",
+          "score": 0.8651,
+          "intent": "track_order"
+        },
+        {
+          "chunk_id": "2dbaa9ba44fd5183",
+          "score": 0.8628,
+          "intent": "track_order"
+        },
+        {
+          "chunk_id": "b31e1483d9f3f56c",
+          "score": 0.8512,
+          "intent": "track_order"
+        },
+        {
+          "chunk_id": "de889f824ab9571b",
+          "score": 0.8474,
+          "intent": "track_order"
+        }
+      ],
+      "generated_answer": "To check the status of purchase {{Order Number}}, please visit our website and log into your account. Once logged in, navigate to the \"Order History\" or \"My Purchases\" section. In this section, you will be able to view the status of your purchase, including any updates or tracking information. If you have any further questions or need additional assistance, please don't hesitate to ask. My goal is to ensure you have a seamless experience tracking your purchase!"
+    },
+    {
+      "query": "is there an e-mail to leave a review for a service",
+      "ground_truth_intent": "review",
+      "ground_truth_response": "We appreciate your enthusiasm to leave a review for our service! Instead of an email, we have a dedicated platform on our website where you can easily submit your feedback. It allows us to gather and analyze reviews efficiently, ensuring that your valuable insights are properly received and acted up",
+      "retrieved_intents": [
+        "review",
+        "review",
+        "review",
+        "review",
+        "review"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "3a56b46790fa2215",
+          "score": 0.8277,
+          "intent": "review"
+        },
+        {
+          "chunk_id": "63c69f9f72718070",
+          "score": 0.7771,
+          "intent": "review"
+        },
+        {
+          "chunk_id": "6030a9429ab817c7",
+          "score": 0.7734,
+          "intent": "review"
+        },
+        {
+          "chunk_id": "572fb147f50d312f",
+          "score": 0.7724,
+          "intent": "review"
+        },
+        {
+          "chunk_id": "b17aab012c10e874",
+          "score": 0.7677,
+          "intent": "review"
+        }
+      ],
+      "generated_answer": "While there isn't an email specifically dedicated to receiving reviews, you can visit our website, navigate to the \"Contact Us\" or \"Feedback\" page, fill out a form, or send a message directly to our customer support team. Alternatively, you can share your review on our social media platforms or review websites."
+    },
+    {
+      "query": "can you help me to open a freemium account?",
+      "ground_truth_intent": "create_account",
+      "ground_truth_response": "I'll make it happen! I'd be delighted to assist you in opening a freemium account. To get started, could you please provide me with your full name, email address, and a preferred username? Once I have this information, I'll guide you through the process step by step, ensuring that you're well-inform",
+      "retrieved_intents": [
+        "create_account",
+        "create_account",
+        "create_account",
+        "create_account",
+        "create_account"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "3bccd2a56ef483bb",
+          "score": 0.84,
+          "intent": "create_account"
+        },
+        {
+          "chunk_id": "cb05e56793659d8f",
+          "score": 0.8378,
+          "intent": "create_account"
+        },
+        {
+          "chunk_id": "8f2b7af2b21e8614",
+          "score": 0.8297,
+          "intent": "create_account"
+        },
+        {
+          "chunk_id": "b1248f708bb837b2",
+          "score": 0.8203,
+          "intent": "create_account"
+        },
+        {
+          "chunk_id": "3d9466d41d7f4ff2",
+          "score": 0.8164,
+          "intent": "create_account"
+        }
+      ],
+      "generated_answer": "Yes, I can help you open a freemium account. To get started, please visit our website and click on the \"Open an Account\" button. If you have any questions or need assistance along the way, feel free to reach out to our customer support team. We're here to help you make the most of your freemium experience."
+    },
+    {
+      "query": "I try to obtain refunds",
+      "ground_truth_intent": "get_refund",
+      "ground_truth_response": "I can tell that you have been attempting to obtain refunds, and I'm here to assist you in the process. Obtaining refunds can sometimes be challenging, but rest assured that I will do my best to guide you through it. To begin, could you please provide me with more details about the specific situation",
+      "retrieved_intents": [
+        "get_refund",
+        "get_refund",
+        "get_refund",
+        "get_refund",
+        "get_refund"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "82eec9212dd10896",
+          "score": 0.7807,
+          "intent": "get_refund"
+        },
+        {
+          "chunk_id": "b005ecde7d8880e9",
+          "score": 0.7702,
+          "intent": "get_refund"
+        },
+        {
+          "chunk_id": "81d38ae85035abac",
+          "score": 0.7602,
+          "intent": "get_refund"
+        },
+        {
+          "chunk_id": "f39c337b9cef3c41",
+          "score": 0.7591,
+          "intent": "get_refund"
+        },
+        {
+          "chunk_id": "36f2930df1d354d2",
+          "score": 0.7573,
+          "intent": "get_refund"
+        }
+      ],
+      "generated_answer": "I can tell that you have been attempting to obtain refunds, and I'm here to assist you in the process. To begin, could you please provide me with more details about the specific situation? Understanding the context and the nature of the refunds you are seeking will allow me to offer you the most appropriate advice and assistance. Your satisfaction is my priority, and I'm committed to helping you resolve this issue and obtain the refunds you deserve."
+    },
+    {
+      "query": "help checking in which cases can I ask for reimbursements",
+      "ground_truth_intent": "check_refund_policy",
+      "ground_truth_response": "I'm happy to help! I understand your desire to learn about the specific situations where you can request reimbursements. Here's a breakdown to provide you with clarity:\n\n1. **Product/Service Defect:** If the product or service you've purchased has a defect or doesn't meet the description, you're gen",
+      "retrieved_intents": [
+        "check_refund_policy",
+        "check_refund_policy",
+        "check_refund_policy",
+        "check_refund_policy",
+        "check_refund_policy"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "c32f34f5ff5f6f01",
+          "score": 0.7876,
+          "intent": "check_refund_policy"
+        },
+        {
+          "chunk_id": "1c2c57ed69166686",
+          "score": 0.7862,
+          "intent": "check_refund_policy"
+        },
+        {
+          "chunk_id": "849c2a27daf07e39",
+          "score": 0.785,
+          "intent": "check_refund_policy"
+        },
+        {
+          "chunk_id": "85e0f15c2a616fa9",
+          "score": 0.7791,
+          "intent": "check_refund_policy"
+        },
+        {
+          "chunk_id": "e066736a36cf0a20",
+          "score": 0.7787,
+          "intent": "check_refund_policy"
+        }
+      ],
+      "generated_answer": "You can ask for reimbursements in the following cases:\n\n1. Product or Service Defects\n2. Cancellation within the Grace Period\n3. Unauthorized Charges\n4. Unfulfilled Orders\n5. Duplicate Charges\n6. Failure to Deliver Promised Benefits\n\nFor specific details or assistance with a particular order, please provide the relevant details."
+    },
+    {
+      "query": "could you help me checking the refund current status?",
+      "ground_truth_intent": "track_refund",
+      "ground_truth_response": "I understand your desire to check the current status of your refund. Let me quickly assist you with that. May I kindly ask for some information regarding your refund? Could you please provide me with the order number or any other reference number associated with your refund? Once I have this informa",
+      "retrieved_intents": [
+        "track_refund",
+        "track_refund",
+        "track_refund",
+        "track_refund",
+        "track_refund"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "2f01fbc38a265ca7",
+          "score": 0.8556,
+          "intent": "track_refund"
+        },
+        {
+          "chunk_id": "aebc61cc0d74dd83",
+          "score": 0.8532,
+          "intent": "track_refund"
+        },
+        {
+          "chunk_id": "f5bc7f3627e2c655",
+          "score": 0.8506,
+          "intent": "track_refund"
+        },
+        {
+          "chunk_id": "991d7cf07e30e1ff",
+          "score": 0.8506,
+          "intent": "track_refund"
+        },
+        {
+          "chunk_id": "3d9af90549d0e0a7",
+          "score": 0.8476,
+          "intent": "track_refund"
+        }
+      ],
+      "generated_answer": "To check the current status of your refund, log into your account on our website and navigate to the \"My Orders\" or \"Order History\" section. There, you should find the details of your refund, including its current status. If you encounter any difficulties, our customer support team is available to help you every step of the way."
+    },
+    {
+      "query": "where to check how long the shipping takes?",
+      "ground_truth_intent": "delivery_period",
+      "ground_truth_response": "We understand your curiosity about tracking the duration of your shipment. To provide you with accurate information, could you please share the {{Tracking Number}} or {{Order Number}} with us? This will allow us to guide you to the appropriate page on our website where you can view the estimated shi",
+      "retrieved_intents": [
+        "delivery_period",
+        "delivery_period",
+        "delivery_period",
+        "delivery_options",
+        "delivery_period"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "40a0406d7b16c278",
+          "score": 0.7594,
+          "intent": "delivery_period"
+        },
+        {
+          "chunk_id": "ed1c0caab889c4ea",
+          "score": 0.7523,
+          "intent": "delivery_period"
+        },
+        {
+          "chunk_id": "21389aee5955fc94",
+          "score": 0.7474,
+          "intent": "delivery_period"
+        },
+        {
+          "chunk_id": "40d4c06cb8c1f930",
+          "score": 0.7453,
+          "intent": "delivery_options"
+        },
+        {
+          "chunk_id": "9932a95316e0a5bf",
+          "score": 0.7391,
+          "intent": "delivery_period"
+        }
+      ],
+      "generated_answer": "To check how long the shipping takes, you can visit our website and enter your [ORDER_NUMBER] or [PLACEHOLDER] in the designated tracking section. You'll be provided with real-time updates on the progress of your package and an estimated delivery date. If you have any further questions or need assistance, our customer support team is always available to help you."
+    },
+    {
+      "query": "can you help me to submit a different delivery address?",
+      "ground_truth_intent": "set_up_shipping_address",
+      "ground_truth_response": "I'll take care of it! I'm here to assist you in submitting a different delivery address. To proceed with this request, you can follow these steps:\n\n1. Log in to your account.\n2. Navigate to the 'My Account' or 'Profile' section.\n3. Look for the 'Shipping Addresses' or similar option.\n4. You should f",
+      "retrieved_intents": [
+        "set_up_shipping_address",
+        "set_up_shipping_address",
+        "set_up_shipping_address",
+        "set_up_shipping_address",
+        "set_up_shipping_address"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "f3baa8eeaf61d5ab",
+          "score": 0.8688,
+          "intent": "set_up_shipping_address"
+        },
+        {
+          "chunk_id": "bf84d106050c2917",
+          "score": 0.8636,
+          "intent": "set_up_shipping_address"
+        },
+        {
+          "chunk_id": "08b425d0339b24fc",
+          "score": 0.8622,
+          "intent": "set_up_shipping_address"
+        },
+        {
+          "chunk_id": "43db2a5c030dbeba",
+          "score": 0.857,
+          "intent": "set_up_shipping_address"
+        },
+        {
+          "chunk_id": "765d2ffcaa190491",
+          "score": 0.856,
+          "intent": "set_up_shipping_address"
+        }
+      ],
+      "generated_answer": "Yes, I can help you submit a different delivery address. To proceed, please follow these steps:\n\n1. Log in to your account.\n2. Navigate to the 'My Account' or 'Profile' section.\n3. Look for the 'Shipping Addresses' or similar option.\n4. Select the option to 'Add a New Address' or 'Edit Shipping Addresses'.\n5. Enter the details of the new delivery address in the provided fields.\n6. Save the changes.\n\nIf you encounter any issues or need further guidance while submitting the new delivery address, please let me know. I'm here to ensure a smooth process for you."
+    },
+    {
+      "query": "i can check the status of my company newsletter subscription",
+      "ground_truth_intent": "newsletter_subscription",
+      "ground_truth_response": "Absolutely! I'm glad to hear that you would like to check the status of your company newsletter subscription. Our customer service team will be able to assist you with this. You can reach out to them through our website or contact our support hotline for further assistance. They will be able to prov",
+      "retrieved_intents": [
+        "newsletter_subscription",
+        "newsletter_subscription",
+        "newsletter_subscription",
+        "newsletter_subscription",
+        "newsletter_subscription"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "094ee23c6651c16e",
+          "score": 0.8315,
+          "intent": "newsletter_subscription"
+        },
+        {
+          "chunk_id": "69f4f6322f97e64e",
+          "score": 0.7755,
+          "intent": "newsletter_subscription"
+        },
+        {
+          "chunk_id": "a59721725396f725",
+          "score": 0.7609,
+          "intent": "newsletter_subscription"
+        },
+        {
+          "chunk_id": "9d74d2e897dd4a79",
+          "score": 0.7508,
+          "intent": "newsletter_subscription"
+        },
+        {
+          "chunk_id": "4ff10a3ae53c5b32",
+          "score": 0.7409,
+          "intent": "newsletter_subscription"
+        }
+      ],
+      "generated_answer": "Absolutely! You can check the status of your company newsletter subscription by visiting our website and logging in to your account. Once logged in, navigate to your account settings or preferences section and look for the newsletter subscription status. It should indicate whether you are currently subscribed or unsubscribed. If you have any trouble finding it, feel free to reach out to our customer service team through our website or contact our support hotline for further assistance. They will be able to provide you with the most up-to-date information regarding your newsletter subscription. We value your commitment and want to ensure that you have a seamless experience with our newsletter."
+    },
+    {
+      "query": "i have issues editing the address",
+      "ground_truth_intent": "change_shipping_address",
+      "ground_truth_response": "I'm sorry to hear that you're experiencing difficulties with editing your address. Don't worry, I'm here to help! Could you please provide me with more details about the specific issues you're encountering? This way, I can assist you in finding a solution quickly.",
+      "retrieved_intents": [
+        "change_shipping_address",
+        "change_shipping_address",
+        "change_shipping_address",
+        "change_shipping_address",
+        "change_shipping_address"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "ec8d828f3de49ae7",
+          "score": 0.8016,
+          "intent": "change_shipping_address"
+        },
+        {
+          "chunk_id": "9af7e594d5ffc436",
+          "score": 0.795,
+          "intent": "change_shipping_address"
+        },
+        {
+          "chunk_id": "3ac00dd0c231accf",
+          "score": 0.7925,
+          "intent": "change_shipping_address"
+        },
+        {
+          "chunk_id": "3967f9038dd8db3a",
+          "score": 0.7903,
+          "intent": "change_shipping_address"
+        },
+        {
+          "chunk_id": "5b099bf6eb4c0143",
+          "score": 0.7879,
+          "intent": "change_shipping_address"
+        }
+      ],
+      "generated_answer": "To resolve your issue with editing the address, please follow these steps:\n1. Log in to your account.\n2. Go to the \"Account Settings\" or \"Profile\" section.\n3. Look for the option to edit your address.\n4. Make the necessary changes and save them.\nIf you're still having difficulties, please provide more details about the specific issue you're facing, and our support team will be happy to assist you further."
+    },
+    {
+      "query": "i do not know what i have to do to edit the user information",
+      "ground_truth_intent": "edit_account",
+      "ground_truth_response": "How utterly exhilarating it is to embark on the quest of editing your esteemed user information!I am here to serve as your knowledgeable companion throughout this process to help you make the desired modifications to your account effortlessly. To edit your user information, you can follow a few simp",
+      "retrieved_intents": [
+        "edit_account",
+        "edit_account",
+        "edit_account",
+        "edit_account",
+        "edit_account"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "0cfdddd9e8cc2f4f",
+          "score": 0.7922,
+          "intent": "edit_account"
+        },
+        {
+          "chunk_id": "9b6d64059f855b50",
+          "score": 0.7441,
+          "intent": "edit_account"
+        },
+        {
+          "chunk_id": "e94f5fc7494f51a3",
+          "score": 0.7434,
+          "intent": "edit_account"
+        },
+        {
+          "chunk_id": "9b359ba2e2c46ae6",
+          "score": 0.7398,
+          "intent": "edit_account"
+        },
+        {
+          "chunk_id": "1d57881fbe0f5441",
+          "score": 0.7396,
+          "intent": "edit_account"
+        }
+      ],
+      "generated_answer": "To edit your user information, you can log in to your account on our website or mobile app. Then, navigate to the \"Account Settings\" or \"Profile\" section. From there, you should be able to make changes to your personal details, such as your name, email address, or contact information. If you encounter any difficulties or have specific requirements, don't hesitate to reach out to our dedicated customer support team, who will be more than happy to assist you."
+    },
+    {
+      "query": "speak with human agent",
+      "ground_truth_intent": "contact_human_agent",
+      "ground_truth_response": "We're listening! I'm keyed into the fact that you would like to speak with a human agent directly. I'm here to help you with that. To connect you with a human agent, please provide me with a little more information about your concern or question. By understanding your specific needs, I can ensure th",
+      "retrieved_intents": [
+        "contact_human_agent",
+        "contact_human_agent",
+        "contact_human_agent",
+        "contact_human_agent",
+        "contact_human_agent"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "68e5ee10871659ce",
+          "score": 0.8093,
+          "intent": "contact_human_agent"
+        },
+        {
+          "chunk_id": "c5724387d89cd07f",
+          "score": 0.8005,
+          "intent": "contact_human_agent"
+        },
+        {
+          "chunk_id": "b771575d4fd69f81",
+          "score": 0.7981,
+          "intent": "contact_human_agent"
+        },
+        {
+          "chunk_id": "fe78a101e46e83a1",
+          "score": 0.7946,
+          "intent": "contact_human_agent"
+        },
+        {
+          "chunk_id": "0a4b0593ed38056a",
+          "score": 0.785,
+          "intent": "contact_human_agent"
+        }
+      ],
+      "generated_answer": "To speak with a human agent, you can follow these steps:\n\n1. Navigate to the \"Contact Us\" page on our website.\n2. Choose the contact option that suits you best, such as phone numbers, email addresses, or live chat.\n3. If you prefer speaking over the phone, dial the provided phone number during our customer service hours.\n4. If you prefer email, compose a detailed message explaining your query and send it to the specified email address.\n5. If you prefer live chat, click on the chat widget and an agent will be available to assist you.\n\nOur team of dedicated agents is here to help, and we are committed to resolving your concerns in the most efficient way possible. Feel free to reach out whenever you need assistance."
+    },
+    {
+      "query": "I need assistance to shop several of your product",
+      "ground_truth_intent": "place_order",
+      "ground_truth_response": "We are delighted to assist you in shopping several of our products! It's fantastic to see your interest in our offerings. Our team is ready to provide you with all the help you need to make your shopping experience enjoyable and successful. To get started, could you please let us know which specific",
+      "retrieved_intents": [
+        "place_order",
+        "place_order",
+        "place_order",
+        "place_order",
+        "place_order"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "960f045f8020e9a7",
+          "score": 0.7786,
+          "intent": "place_order"
+        },
+        {
+          "chunk_id": "e3e2f0f9109a5239",
+          "score": 0.7713,
+          "intent": "place_order"
+        },
+        {
+          "chunk_id": "064b34c29fb9f5a6",
+          "score": 0.77,
+          "intent": "place_order"
+        },
+        {
+          "chunk_id": "c5be1a4023ea5a7e",
+          "score": 0.767,
+          "intent": "place_order"
+        },
+        {
+          "chunk_id": "120b06d464fd8982",
+          "score": 0.7633,
+          "intent": "place_order"
+        }
+      ],
+      "generated_answer": "We are delighted to assist you in shopping several of our products! To get started, could you please let us know which specific products you are looking to shop for and any preferences or requirements you might have? With this information, we can ensure that we guide you to exactly what you are looking for."
+    },
+    {
+      "query": "I need assistance to file a consumer claim",
+      "ground_truth_intent": "complaint",
+      "ground_truth_response": "I understand the urgency and importance of filing a consumer claim, and I'm here to provide the guidance and support you need. Filing a claim can be a complex process, but rest assured, I'll do my best to make it as smooth as possible for you. To get started, could you please provide me with the det",
+      "retrieved_intents": [
+        "complaint",
+        "complaint",
+        "complaint",
+        "complaint",
+        "complaint"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "c48ec9946c6db503",
+          "score": 0.8207,
+          "intent": "complaint"
+        },
+        {
+          "chunk_id": "13bd13e9f70b940f",
+          "score": 0.8127,
+          "intent": "complaint"
+        },
+        {
+          "chunk_id": "cf5c3d4d1ae1e985",
+          "score": 0.8086,
+          "intent": "complaint"
+        },
+        {
+          "chunk_id": "08e1923095edc5ad",
+          "score": 0.8057,
+          "intent": "complaint"
+        },
+        {
+          "chunk_id": "5a717987591022cd",
+          "score": 0.8045,
+          "intent": "complaint"
+        }
+      ],
+      "generated_answer": "To file a consumer claim, gather any relevant documents such as receipts, order numbers, or proof of purchase. Then, contact our customer support team through our designated channels, which may include phone, email, or live chat. They will provide you with the necessary instructions and assist you in submitting your claim. Rest assured, we take consumer complaints seriously and will work diligently to resolve your issue."
+    },
+    {
+      "query": "edit information on premium account",
+      "ground_truth_intent": "edit_account",
+      "ground_truth_response": "How remarkable it is to embrace the splendid journey of editing the information on your esteemed {{Account Category}} account!I am thrilled to assist you in refining and updating your account details to ensure they align perfectly with your premium experience. Together, we'll navigate through this p",
+      "retrieved_intents": [
+        "edit_account",
+        "edit_account",
+        "edit_account",
+        "edit_account",
+        "edit_account"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "e386aac5cded4c00",
+          "score": 0.8154,
+          "intent": "edit_account"
+        },
+        {
+          "chunk_id": "8b5b4449589835ca",
+          "score": 0.8105,
+          "intent": "edit_account"
+        },
+        {
+          "chunk_id": "eb66cdf85abd0ec0",
+          "score": 0.8018,
+          "intent": "edit_account"
+        },
+        {
+          "chunk_id": "0e89265763c0cac0",
+          "score": 0.8003,
+          "intent": "edit_account"
+        },
+        {
+          "chunk_id": "ac7a423388fcf58f",
+          "score": 0.7972,
+          "intent": "edit_account"
+        }
+      ],
+      "generated_answer": "To edit the information on your premium account, I recommend accessing your account settings through our secure [PLACEHOLDER]. From there, you'll have the option to edit and update various account details such as personal information, contact preferences, and billing settings. If you encounter any difficulties or have questions along the way, our dedicated support team is available to provide personalized guidance."
+    },
+    {
+      "query": "i have got to modify my shipping address how to do it",
+      "ground_truth_intent": "change_shipping_address",
+      "ground_truth_response": "No worries! To modify your shipping address, you can follow these simple steps:\n1. Log in to your account on our website.\n2. Go to your account settings or profile page.\n3. Look for the \"Shipping Address\" section.\n4. Click on the \"Edit\" or \"Modify\" button next to your current address.\n5. Enter your ",
+      "retrieved_intents": [
+        "change_shipping_address",
+        "change_shipping_address",
+        "change_shipping_address",
+        "change_shipping_address",
+        "change_shipping_address"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "afbfabb919896d62",
+          "score": 0.8901,
+          "intent": "change_shipping_address"
+        },
+        {
+          "chunk_id": "20866626077fd10a",
+          "score": 0.8557,
+          "intent": "change_shipping_address"
+        },
+        {
+          "chunk_id": "cc655d53678665f0",
+          "score": 0.8491,
+          "intent": "change_shipping_address"
+        },
+        {
+          "chunk_id": "d94b4bcef86dc7d2",
+          "score": 0.8476,
+          "intent": "change_shipping_address"
+        },
+        {
+          "chunk_id": "084f0006c2ebab33",
+          "score": 0.842,
+          "intent": "change_shipping_address"
+        }
+      ],
+      "generated_answer": "To modify your shipping address, you can follow these simple steps:\n1. Log in to your account on our website.\n2. Go to your account settings or profile page.\n3. Look for the \"Shipping Address\" section.\n4. Click on the \"Edit\" or \"Modify\" button next to your current address.\n5. Enter your new shipping address in the provided fields.\n6. Review the changes and click on the \"Save\" or \"Update\" button.\n7. Make sure to double-check your modified shipping address before finalizing the update.\nIf you encounter any difficulties or need further assistance, feel free to reach out to our customer support team. They will be more than happy to help you with the address modification process."
+    },
+    {
+      "query": "I want to delete a {{Account Type}} account, help me",
+      "ground_truth_intent": "delete_account",
+      "ground_truth_response": "We're here for you to us for assistance with deleting your {{Account Type}} account. I understand that you have made the decision to delete your account, and it's our priority to assist you with this process. To ensure that your account is properly deleted, I will need some information from you. Can",
+      "retrieved_intents": [
+        "delete_account",
+        "delete_account",
+        "delete_account",
+        "delete_account",
+        "delete_account"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "1294cf104e157e81",
+          "score": 0.8043,
+          "intent": "delete_account"
+        },
+        {
+          "chunk_id": "8645c7598bd56dec",
+          "score": 0.7957,
+          "intent": "delete_account"
+        },
+        {
+          "chunk_id": "5b8ba80e447145bf",
+          "score": 0.7955,
+          "intent": "delete_account"
+        },
+        {
+          "chunk_id": "146270ed9e5da2eb",
+          "score": 0.7926,
+          "intent": "delete_account"
+        },
+        {
+          "chunk_id": "e99e3b1f589b055b",
+          "score": 0.7915,
+          "intent": "delete_account"
+        }
+      ],
+      "generated_answer": "To delete a [ACCOUNT_TYPE] account, you can follow these steps:\n\n1. Log in to your account on our website or app.\n2. Navigate to the account settings or profile section.\n3. Look for the option to delete or close your account.\n4. Confirm your decision to delete the account when prompted.\n\nIf you encounter any difficulties or have further questions during the process, please don't hesitate to let me know. I'm here to guide you step by step and address any concerns you might have along the way."
+    },
+    {
+      "query": "I have got to leave my feedback, I need assistance",
+      "ground_truth_intent": "review",
+      "ground_truth_response": "Happy to get your message to us with your feedback! Your insights are essential to us, as they help us enhance our services and create a better experience for our valued customers like you. I'm here to assist you in every possible way. Please let me know how I can help you with leaving your feedback",
+      "retrieved_intents": [
+        "review",
+        "review",
+        "review",
+        "review",
+        "review"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "0eebbb0bcea4f686",
+          "score": 0.7659,
+          "intent": "review"
+        },
+        {
+          "chunk_id": "ed5798d4e75a05e4",
+          "score": 0.7516,
+          "intent": "review"
+        },
+        {
+          "chunk_id": "20f2ffc07d932c95",
+          "score": 0.7481,
+          "intent": "review"
+        },
+        {
+          "chunk_id": "aa995405a4a718e3",
+          "score": 0.743,
+          "intent": "review"
+        },
+        {
+          "chunk_id": "cbd404c9ed63ac09",
+          "score": 0.7408,
+          "intent": "review"
+        }
+      ],
+      "generated_answer": "Happy to help you with leaving your feedback! Your insights are essential to us, as they help us enhance our services and create a better experience for our valued customers like you. I'm here to assist you in every possible way. Please let me know how I can help you with leaving your feedback."
+    },
+    {
+      "query": "show cancellation penalty",
+      "ground_truth_intent": "check_cancellation_fee",
+      "ground_truth_response": "Certainly! Allow me to provide you with the details regarding the cancellation penalty.",
+      "retrieved_intents": [
+        "check_cancellation_fee",
+        "check_cancellation_fee",
+        "check_cancellation_fee",
+        "check_cancellation_fee",
+        "check_cancellation_fee"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "32f05d41491ad997",
+          "score": 0.7362,
+          "intent": "check_cancellation_fee"
+        },
+        {
+          "chunk_id": "39c0c0f130e02146",
+          "score": 0.7193,
+          "intent": "check_cancellation_fee"
+        },
+        {
+          "chunk_id": "123d12d7da890cb3",
+          "score": 0.7189,
+          "intent": "check_cancellation_fee"
+        },
+        {
+          "chunk_id": "89a39e741da775e0",
+          "score": 0.6908,
+          "intent": "check_cancellation_fee"
+        },
+        {
+          "chunk_id": "83c0b4c8922d2ae2",
+          "score": 0.6806,
+          "intent": "check_cancellation_fee"
+        }
+      ],
+      "generated_answer": "To view the cancellation penalty, please follow these steps:\n1. Visit our website and log in to your account.\n2. Navigate to the \"Billing\" or \"Account\" section.\n3. Look for the \"Cancellation Policy\" or \"Fees and Penalties\" tab.\n4. Click on it to access detailed information about the cancellation penalty.\nIf you have any further questions, feel free to reach out to our customer support team for assistance."
+    },
+    {
+      "query": "how do i create a freemium account",
+      "ground_truth_intent": "create_account",
+      "ground_truth_response": "I'll do my best! \ud83c\udf1f I'm delighted to assist you in creating a freemium account. It's a straightforward process that will give you access to a range of basic features and services at no cost. To get started, please visit our website and navigate to the 'Account Creation' page. You'll find a simple for",
+      "retrieved_intents": [
+        "create_account",
+        "create_account",
+        "create_account",
+        "create_account",
+        "create_account"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "ef387d9a2a1ab068",
+          "score": 0.8699,
+          "intent": "create_account"
+        },
+        {
+          "chunk_id": "bd4124a5fe81252f",
+          "score": 0.8665,
+          "intent": "create_account"
+        },
+        {
+          "chunk_id": "51a4f4e17295aa59",
+          "score": 0.8632,
+          "intent": "create_account"
+        },
+        {
+          "chunk_id": "1a41306b8c8fec07",
+          "score": 0.8598,
+          "intent": "create_account"
+        },
+        {
+          "chunk_id": "1350cf4394cfcd3a",
+          "score": 0.8414,
+          "intent": "create_account"
+        }
+      ],
+      "generated_answer": "To create a freemium account, you can visit our website and navigate to the account creation page. On that page, you will see an option to create a freemium account. Simply click on that option and follow the step-by-step instructions provided. You will be prompted to provide some basic information such as your name, email address, and a password. Once you have filled in all the required fields, make sure to review the terms and conditions before submitting your registration. After that, you should receive a confirmation email with further instructions. If you encounter any difficulties along the way, feel free to reach out to our customer support team for assistance."
+    },
+    {
+      "query": "how do I file a consumer complaint against your company?",
+      "ground_truth_intent": "complaint",
+      "ground_truth_response": "I've understood you are looking to file a consumer complaint against our company, and I'm here to guide you through the process. Filing a complaint is an essential step in addressing any concerns and ensuring that we can address them promptly and effectively. To initiate the complaint process, pleas",
+      "retrieved_intents": [
+        "complaint",
+        "complaint",
+        "complaint",
+        "complaint",
+        "complaint"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "7ee19796c9445410",
+          "score": 0.8563,
+          "intent": "complaint"
+        },
+        {
+          "chunk_id": "d76f92902e2e39c4",
+          "score": 0.849,
+          "intent": "complaint"
+        },
+        {
+          "chunk_id": "2771c6c75b9eefe7",
+          "score": 0.8412,
+          "intent": "complaint"
+        },
+        {
+          "chunk_id": "b587be7ddd4e906a",
+          "score": 0.837,
+          "intent": "complaint"
+        },
+        {
+          "chunk_id": "3b75ccac8c9573b0",
+          "score": 0.8323,
+          "intent": "complaint"
+        }
+      ],
+      "generated_answer": "To file a consumer complaint against our company, you can reach out to our customer support team via phone, email, or through our website. They will provide you with the necessary forms or information required to file the complaint. Additionally, if you prefer to submit your complaint in writing, you can send it to our dedicated complaints department. Our goal is to resolve your concerns satisfactorily and demonstrate our commitment to exceptional customer service."
+    },
+    {
+      "query": "could ya help me infofming of a sign-up issue",
+      "ground_truth_intent": "registration_problems",
+      "ground_truth_response": "We've received your message to us for assistance in informing us about the sign-up issue you're facing. We understand how important it is to address any challenges you encounter during the sign-up process. To better assist you, could you please provide more details about the specific issue you are e",
+      "retrieved_intents": [
+        "registration_problems",
+        "registration_problems",
+        "registration_problems",
+        "registration_problems",
+        "registration_problems"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "6a1edbae511eb09a",
+          "score": 0.8116,
+          "intent": "registration_problems"
+        },
+        {
+          "chunk_id": "b911c3af9fbc4772",
+          "score": 0.7922,
+          "intent": "registration_problems"
+        },
+        {
+          "chunk_id": "23d73ff2195081cf",
+          "score": 0.7739,
+          "intent": "registration_problems"
+        },
+        {
+          "chunk_id": "8159f3e8f73087d5",
+          "score": 0.7729,
+          "intent": "registration_problems"
+        },
+        {
+          "chunk_id": "a6fad368e56b5032",
+          "score": 0.7728,
+          "intent": "registration_problems"
+        }
+      ],
+      "generated_answer": "We're here to help you inform us about the sign-up issue you're facing. To better assist you, could you please provide more details about the specific issue you are experiencing? This will enable us to investigate and resolve the problem promptly. We appreciate your patience and cooperation in helping us improve our sign-up process for a seamless user experience."
+    },
+    {
+      "query": "find information about the lost access key",
+      "ground_truth_intent": "recover_password",
+      "ground_truth_response": "I'm on it! I completely understand your need to find information about the lost access key. Losing access to your key can be frustrating, but rest assured, I'm here to assist you. To get started, please provide me with some details about your account so that we can retrieve the necessary information",
+      "retrieved_intents": [
+        "recover_password",
+        "recover_password",
+        "recover_password",
+        "recover_password",
+        "recover_password"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "11f78c92aff475ea",
+          "score": 0.8202,
+          "intent": "recover_password"
+        },
+        {
+          "chunk_id": "68b002d836783662",
+          "score": 0.8128,
+          "intent": "recover_password"
+        },
+        {
+          "chunk_id": "e1af9e42f55def72",
+          "score": 0.7895,
+          "intent": "recover_password"
+        },
+        {
+          "chunk_id": "f271caf5034a7342",
+          "score": 0.7753,
+          "intent": "recover_password"
+        },
+        {
+          "chunk_id": "ee1b0b17e3824627",
+          "score": 0.7733,
+          "intent": "recover_password"
+        }
+      ],
+      "generated_answer": "To find information about a lost access key, you can visit the platform's support page or reach out to the customer service team. They can provide you with specific guidance on the process of retrieving a lost access key. In your communication with the support team, make sure to provide them with any relevant details about the lost access key, such as when it was last used or any associated account information. Our support team will work diligently to help you recover the lost access key. They may ask you some security questions or request additional information to verify your identity and ensure the key is returned to the rightful owner."
+    },
+    {
+      "query": "I don't know what I need to do to get the bill #12588",
+      "ground_truth_intent": "get_invoice",
+      "ground_truth_response": "Unquestionably! I understand that you are unsure of the steps to retrieve the bill with number #{{Invoice Number}}. Let me guide you through the process. First, please log in to your account on our website or app. Once you're logged in, navigate to the \"Billing\" or \"Invoices\" section in your account",
+      "retrieved_intents": [
+        "get_invoice",
+        "get_invoice",
+        "get_invoice",
+        "get_invoice",
+        "get_invoice"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "a3b4ee8269b26c32",
+          "score": 0.7493,
+          "intent": "get_invoice"
+        },
+        {
+          "chunk_id": "161ed66b25b6a50c",
+          "score": 0.7485,
+          "intent": "get_invoice"
+        },
+        {
+          "chunk_id": "3c3608445ca476d5",
+          "score": 0.7441,
+          "intent": "get_invoice"
+        },
+        {
+          "chunk_id": "9120153a40e51890",
+          "score": 0.7435,
+          "intent": "get_invoice"
+        },
+        {
+          "chunk_id": "065364e44635318a",
+          "score": 0.7405,
+          "intent": "get_invoice"
+        }
+      ],
+      "generated_answer": "To get bill #12588, please log in to your account on our website or mobile app. Once you're logged in, navigate to the \"Billing\" or \"Invoices\" section. Look for the option to view/download your invoices. It might be displayed as \"Download Invoice,\" \"View Bill,\" or something similar. Click on that option, and a list of your invoices will appear. Find and select the invoice with the number #[PLACEHOLDER] to download it. If you encounter any difficulties during this process or have any further questions, please don't hesitate to let me know. I'm here to assist you every step of the way!"
+    },
+    {
+      "query": "I do not know what to do to delete a standard account",
+      "ground_truth_intent": "delete_account",
+      "ground_truth_response": "Glad you got in touch to us for assistance with deleting your standard account. I understand that you may be unsure about the necessary steps, but rest assured, I'm here to help guide you through this process. To delete your standard account, you will need to follow a few simple steps. First, log in",
+      "retrieved_intents": [
+        "delete_account",
+        "delete_account",
+        "delete_account",
+        "delete_account",
+        "delete_account"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "61b0429faf88bad0",
+          "score": 0.8553,
+          "intent": "delete_account"
+        },
+        {
+          "chunk_id": "b4207b11e385133e",
+          "score": 0.8437,
+          "intent": "delete_account"
+        },
+        {
+          "chunk_id": "2e0e80ed27309400",
+          "score": 0.839,
+          "intent": "delete_account"
+        },
+        {
+          "chunk_id": "e2b793dd5f894a79",
+          "score": 0.8387,
+          "intent": "delete_account"
+        },
+        {
+          "chunk_id": "703904426315dee6",
+          "score": 0.8386,
+          "intent": "delete_account"
+        }
+      ],
+      "generated_answer": "To delete a standard account, you can follow these steps:\n\n1. Log in to your account on our website.\n2. Navigate to the account settings or profile section.\n3. Look for an option that says \"Delete Account\" or something similar.\n4. Click on the option and you might be prompted to confirm your decision.\n5. Provide any requested information or follow additional steps to finalize the deletion process.\n\nIf you encounter any difficulties or have further questions, please don't hesitate to let me know. I'll be happy to guide you through the process and provide any additional assistance you may need."
+    },
+    {
+      "query": "I don't know what to do to call customer support",
+      "ground_truth_intent": "contact_customer_service",
+      "ground_truth_response": "Honored to assist! I'm clued in that you're unsure about how to call our customer support team. Don't worry; I'm here to guide you. To contact our customer support, you can dial our dedicated helpline at {{Customer Support Phone Number}}. Our friendly agents will be ready to assist you with any ques",
+      "retrieved_intents": [
+        "contact_customer_service",
+        "contact_customer_service",
+        "contact_customer_service",
+        "contact_customer_service",
+        "contact_human_agent"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "e2960efef6467ee6",
+          "score": 0.8067,
+          "intent": "contact_customer_service"
+        },
+        {
+          "chunk_id": "76c87ffcf19ad328",
+          "score": 0.7912,
+          "intent": "contact_customer_service"
+        },
+        {
+          "chunk_id": "6288dd9866ef7697",
+          "score": 0.7837,
+          "intent": "contact_customer_service"
+        },
+        {
+          "chunk_id": "a1182b9b6dafd4d7",
+          "score": 0.7825,
+          "intent": "contact_customer_service"
+        },
+        {
+          "chunk_id": "c11a530a19f3cb7b",
+          "score": 0.7822,
+          "intent": "contact_human_agent"
+        }
+      ],
+      "generated_answer": "To call our customer support, you can dial our dedicated helpline at [PLACEHOLDER]. Our friendly agents will be ready to assist you with any questions or concerns you may have."
+    },
+    {
+      "query": "add something to order {{Order Number}}",
+      "ground_truth_intent": "change_order",
+      "ground_truth_response": "I've been informed that you need assistance with adding something to your order with the number {{Order Number}}. We are here to help make the necessary adjustments to ensure your order meets your expectations. Could you please provide more details about what you would like to add? This will allow u",
+      "retrieved_intents": [
+        "change_order",
+        "change_order",
+        "change_order",
+        "change_order",
+        "change_order"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "b6c2b0155130ebd2",
+          "score": 0.7604,
+          "intent": "change_order"
+        },
+        {
+          "chunk_id": "cc0a9651a975f7df",
+          "score": 0.7578,
+          "intent": "change_order"
+        },
+        {
+          "chunk_id": "85b10da2985913c0",
+          "score": 0.748,
+          "intent": "change_order"
+        },
+        {
+          "chunk_id": "69921e56f0567637",
+          "score": 0.739,
+          "intent": "change_order"
+        },
+        {
+          "chunk_id": "5ffbbe9fc44266ac",
+          "score": 0.735,
+          "intent": "change_order"
+        }
+      ],
+      "generated_answer": "To add something to order [ORDER_NUMBER], you can follow these steps:\n\n1. Log in to your account on our website or mobile app.\n2. Navigate to your orders or order history.\n3. Locate the specific order number ([ORDER_NUMBER]) you want to modify.\n4. Click on the order and look for the option to \"Add Item.\"\n5. Select the item you wish to add from our available inventory.\n6. Confirm the addition and proceed with the checkout process if required.\n\nPlease note that the availability of the \"Add Item\" option may depend on the current status of your order. If you encounter any difficulties or have additional questions, our customer support team is available to help you through live chat or phone support. We appreciate your understanding and patience as we assist you in enhancing your order."
+    },
+    {
+      "query": "can you help me to buy a damn article?",
+      "ground_truth_intent": "place_order",
+      "ground_truth_response": "We're here to assist you in purchasing the article you're interested in! It's great to see your enthusiasm, and I can assure you that we'll make this process as seamless as possible. To get started, could you please provide more details about the specific article you'd like to buy? This will enable ",
+      "retrieved_intents": [
+        "place_order",
+        "place_order",
+        "place_order",
+        "place_order",
+        "place_order"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "eddd53cbdda3a27c",
+          "score": 0.7849,
+          "intent": "place_order"
+        },
+        {
+          "chunk_id": "0832f03dbe1f0ca0",
+          "score": 0.7706,
+          "intent": "place_order"
+        },
+        {
+          "chunk_id": "971a0ae6f54e0473",
+          "score": 0.7569,
+          "intent": "place_order"
+        },
+        {
+          "chunk_id": "6ea71284ed633115",
+          "score": 0.755,
+          "intent": "place_order"
+        },
+        {
+          "chunk_id": "151b996d11a3545e",
+          "score": 0.7541,
+          "intent": "place_order"
+        }
+      ],
+      "generated_answer": "Yes, I can help you buy a specific article! To get started, please provide me with more details about the article you'd like to buy, such as the name, model, or any specific features you are looking for. Once I have this information, I will guide you through the process of placing your order. You can find our articles on our website or visit one of our stores for a more personalized shopping experience. If you have any questions or need further assistance, feel free to reach out to our customer service team."
+    },
+    {
+      "query": "can i check at what time i can reach customer support",
+      "ground_truth_intent": "contact_customer_service",
+      "ground_truth_response": "Thank you for trusting us! I'm fully aware of you are looking for information about the timings when our customer support team is available. Our customer support operates during {{Customer Support Hours}}. If you have any further questions or concerns, please feel free to ask. How else may I assist ",
+      "retrieved_intents": [
+        "contact_customer_service",
+        "contact_customer_service",
+        "contact_customer_service",
+        "contact_customer_service",
+        "contact_customer_service"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "f6b19ed6d73d4502",
+          "score": 0.8378,
+          "intent": "contact_customer_service"
+        },
+        {
+          "chunk_id": "47a08993833d2d38",
+          "score": 0.8257,
+          "intent": "contact_customer_service"
+        },
+        {
+          "chunk_id": "908dda4e6f41a3fc",
+          "score": 0.8256,
+          "intent": "contact_customer_service"
+        },
+        {
+          "chunk_id": "69162cbe4a054642",
+          "score": 0.8237,
+          "intent": "contact_customer_service"
+        },
+        {
+          "chunk_id": "e29d4bef86843824",
+          "score": 0.8156,
+          "intent": "contact_customer_service"
+        }
+      ],
+      "generated_answer": "Our customer support is available from [PLACEHOLDER]. You can check the specific timings by visiting our website's contact page or referring to the customer support section in your account dashboard. Alternatively, you can reach out to our customer support team via email or live chat, and they will be happy to provide you with the accurate information."
+    },
+    {
+      "query": "seeing your money back policy",
+      "ground_truth_intent": "check_refund_policy",
+      "ground_truth_response": "I appreciate your interest in understanding our money back policy. At our company, we strive to provide a transparent and customer-centric approach to refunds. Here are the key points of our policy:\n\n1. **Product/Service Defect:** If you receive a defective product or a service that does not meet yo",
+      "retrieved_intents": [
+        "check_refund_policy",
+        "check_refund_policy",
+        "check_refund_policy",
+        "check_refund_policy",
+        "check_refund_policy"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "b1259a4d578dbc04",
+          "score": 0.804,
+          "intent": "check_refund_policy"
+        },
+        {
+          "chunk_id": "33b91a5dbe45e607",
+          "score": 0.7927,
+          "intent": "check_refund_policy"
+        },
+        {
+          "chunk_id": "643e37879de6bbfc",
+          "score": 0.7725,
+          "intent": "check_refund_policy"
+        },
+        {
+          "chunk_id": "f8cbfd7998b98300",
+          "score": 0.7716,
+          "intent": "check_refund_policy"
+        },
+        {
+          "chunk_id": "e4baa84cacd013f0",
+          "score": 0.7706,
+          "intent": "check_refund_policy"
+        }
+      ],
+      "generated_answer": "To see our money back policy, please visit our website and navigate to the \"Refund Policy\" section, usually found in the footer or under the \"Terms and Conditions\" tab. Our money back policy outlines the specific scenarios and conditions under which you may be eligible for a refund. If you encounter any difficulties, our customer support team is here to help."
+    },
+    {
+      "query": "I bought some items, help canceling order {{Order Number}}",
+      "ground_truth_intent": "cancel_order",
+      "ground_truth_response": "I can tell that you've made a purchase and now you need assistance with canceling order number {{Order Number}}. Allow me to guide you through the process and provide the necessary support to resolve this for you.",
+      "retrieved_intents": [
+        "cancel_order",
+        "cancel_order",
+        "cancel_order",
+        "cancel_order",
+        "cancel_order"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "6dc816dc0cbcfe0b",
+          "score": 0.807,
+          "intent": "cancel_order"
+        },
+        {
+          "chunk_id": "5d3da823b00aff53",
+          "score": 0.8035,
+          "intent": "cancel_order"
+        },
+        {
+          "chunk_id": "12a94057bf40edd5",
+          "score": 0.7957,
+          "intent": "cancel_order"
+        },
+        {
+          "chunk_id": "20ff1b698c4080fd",
+          "score": 0.7939,
+          "intent": "cancel_order"
+        },
+        {
+          "chunk_id": "43ad0d5c9bcb32b6",
+          "score": 0.7939,
+          "intent": "cancel_order"
+        }
+      ],
+      "generated_answer": "To cancel your purchase with order number {{Order Number}}, please follow these steps:\n\n1. Log in to your account using your credentials.\n2. Navigate to the \"[PLACEHOLDER]\" or \"[PLACEHOLDER]\" section.\n3. Locate the order associated with the order number {{Order Number}}.\n4. Click on the order to access the details.\n5. Look for the option to \"[PLACEHOLDER]\" and select it.\n6. Follow any further prompts or instructions to complete the cancellation process.\n\nIf you encounter any difficulties or have additional questions, our dedicated support team is available during [PLACEHOLDER]. You can reach us at [PLACEHOLDER] or through the Live Chat feature on our [PLACEHOLDER]. We appreciate your understanding and are committed to providing the best possible assistance."
+    },
+    {
+      "query": "could you help me inform of a problem with registrations?",
+      "ground_truth_intent": "registration_problems",
+      "ground_truth_response": "We appreciate you reaching out to inform us about the problem you encountered during the registration process. Your feedback is valuable in helping us improve our services and ensure a smooth experience for all our users. To better assist you, could you please provide more details about the specific",
+      "retrieved_intents": [
+        "registration_problems",
+        "registration_problems",
+        "registration_problems",
+        "registration_problems",
+        "registration_problems"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "1fa331683105ed85",
+          "score": 0.8375,
+          "intent": "registration_problems"
+        },
+        {
+          "chunk_id": "745a8b2af9722393",
+          "score": 0.82,
+          "intent": "registration_problems"
+        },
+        {
+          "chunk_id": "ae652496756ddf9a",
+          "score": 0.8186,
+          "intent": "registration_problems"
+        },
+        {
+          "chunk_id": "30e07a194f232cfc",
+          "score": 0.8142,
+          "intent": "registration_problems"
+        },
+        {
+          "chunk_id": "657641ce47ac016c",
+          "score": 0.8139,
+          "intent": "registration_problems"
+        }
+      ],
+      "generated_answer": "Yes, I can help you inform of a problem with registrations. To do so, please provide more details about the specific issue you're facing. This will enable us to investigate and provide you with the best possible solution. You can reach out to our customer support team through multiple channels, such as visiting our website's \"Contact Us\" page, emailing our support team at [email protected], or contacting our support team via phone at [PLACEHOLDER] during our business hours."
+    },
+    {
+      "query": "I want assistance seeing your accepted payment methods",
+      "ground_truth_intent": "check_payment_methods",
+      "ground_truth_response": "Sure! I'm delighted to assist you in exploring the payment methods we accept. Our objective is to provide you with flexibility and convenience. Here are the accepted payment methods:\n\n1. **Credit/Debit Card:** We welcome major card brands like Visa, Mastercard, and American Express for seamless tran",
+      "retrieved_intents": [
+        "check_payment_methods",
+        "check_payment_methods",
+        "check_payment_methods",
+        "check_payment_methods",
+        "check_payment_methods"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "c5e99f5b4c57a7f4",
+          "score": 0.838,
+          "intent": "check_payment_methods"
+        },
+        {
+          "chunk_id": "6d28bf1be38e7f66",
+          "score": 0.8271,
+          "intent": "check_payment_methods"
+        },
+        {
+          "chunk_id": "33120c1801903346",
+          "score": 0.8208,
+          "intent": "check_payment_methods"
+        },
+        {
+          "chunk_id": "a040e41722c07f04",
+          "score": 0.8203,
+          "intent": "check_payment_methods"
+        },
+        {
+          "chunk_id": "9af18ee04b4e8450",
+          "score": 0.8189,
+          "intent": "check_payment_methods"
+        }
+      ],
+      "generated_answer": "To view our accepted payment methods, please follow these simple steps:\n\n1. Visit our website and navigate to the 'Payment Methods' section.\n2. On the 'Payment Methods' page, you will find a comprehensive list of all the payment options we accept.\n3. Take your time to review the different methods available and choose the one that suits you best.\n\nIf you encounter any difficulties or have further questions, please don't hesitate to let me know. I'll be more than happy to assist you throughout the process. Your satisfaction is our top priority!"
+    },
+    {
+      "query": "I am trying to change to the standard account",
+      "ground_truth_intent": "switch_account",
+      "ground_truth_response": "I'm thrilled that you're considering switching to our {{Account Type}} account! Let's make this transition smooth and hassle-free for you:\n\n1. Access Your Account: Begin by logging into our platform.\n2. Profile Settings: Once you're logged in, navigate to your '{{Settings}}' or '{{Profile}}' section",
+      "retrieved_intents": [
+        "switch_account",
+        "switch_account",
+        "switch_account",
+        "switch_account",
+        "switch_account"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "cb6d969eec8224b3",
+          "score": 0.7999,
+          "intent": "switch_account"
+        },
+        {
+          "chunk_id": "ab28b86ee8d8dd9a",
+          "score": 0.7923,
+          "intent": "switch_account"
+        },
+        {
+          "chunk_id": "3733ff21d57c9823",
+          "score": 0.7834,
+          "intent": "switch_account"
+        },
+        {
+          "chunk_id": "8374a8119871db1c",
+          "score": 0.7807,
+          "intent": "switch_account"
+        },
+        {
+          "chunk_id": "eeae47155555feb7",
+          "score": 0.7791,
+          "intent": "switch_account"
+        }
+      ],
+      "generated_answer": "To change to the standard account, follow these steps:\n\n1. Access Your Account: Log into our platform using your credentials.\n2. Account Settings: Once you're logged in, navigate to the '[PLACEHOLDER]' or '[PLACEHOLDER]' section of your account.\n3. Switch Account Type: Within the account settings, locate the option labeled '[PLACEHOLDER]' or '[PLACEHOLDER]'.\n4. [ACCOUNT_TYPE] Account Selection: Choose the '[ACCOUNT_TYPE]' option from the list provided.\n5. Confirmation: Follow the on-screen instructions to confirm your change and finalize the switch.\n\nIf you encounter any difficulties or have further questions during the process, please don't hesitate to reach out. I'm here to ensure a smooth transition and assist you every step of the way. Enjoy the benefits of our standard account!"
+    },
+    {
+      "query": "I don't knos how to check when my package is going to arrive",
+      "ground_truth_intent": "delivery_period",
+      "ground_truth_response": "We completely understand your concern about tracking the delivery status of your package. To assist you with this, could you please provide us with the {{Tracking Number}} or {{Order Number}}? With this information, we will be able to give you an accurate update on the estimated arrival time of your",
+      "retrieved_intents": [
+        "delivery_period",
+        "delivery_period",
+        "delivery_period",
+        "delivery_period",
+        "delivery_period"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "91d703857b801ebb",
+          "score": 0.8178,
+          "intent": "delivery_period"
+        },
+        {
+          "chunk_id": "7321e9c1abc7b638",
+          "score": 0.8126,
+          "intent": "delivery_period"
+        },
+        {
+          "chunk_id": "dc414a035b31b719",
+          "score": 0.8108,
+          "intent": "delivery_period"
+        },
+        {
+          "chunk_id": "3f439c2c6acba954",
+          "score": 0.804,
+          "intent": "delivery_period"
+        },
+        {
+          "chunk_id": "151f447a5439a3ca",
+          "score": 0.8018,
+          "intent": "delivery_period"
+        }
+      ],
+      "generated_answer": "To check when your package is going to arrive, you can visit our website and navigate to the \"Order Status\" or \"Track Package\" section. Once there, you'll need to enter the [ORDER_NUMBER] or [PLACEHOLDER] to retrieve the latest updates. If you encounter any difficulties, our customer support team is available to assist you. Please don't hesitate to reach out!"
+    },
+    {
+      "query": "i have got to check the damn withdrawal penalty",
+      "ground_truth_intent": "check_cancellation_fee",
+      "ground_truth_response": "Indeed! To view the withdrawal penalty, please log in to your account and navigate to the \"Penalties\" or \"Fees\" section. You will find the relevant information there.",
+      "retrieved_intents": [
+        "check_cancellation_fee",
+        "check_cancellation_fee",
+        "check_cancellation_fee",
+        "check_cancellation_fee",
+        "check_cancellation_fee"
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_id": "4e3a29dd946abb33",
+          "score": 0.7594,
+          "intent": "check_cancellation_fee"
+        },
+        {
+          "chunk_id": "c04aa858c14d428c",
+          "score": 0.7467,
+          "intent": "check_cancellation_fee"
+        },
+        {
+          "chunk_id": "1af5f05b5b45c71f",
+          "score": 0.7437,
+          "intent": "check_cancellation_fee"
+        },
+        {
+          "chunk_id": "466e8887a4d67057",
+          "score": 0.7279,
+          "intent": "check_cancellation_fee"
+        },
+        {
+          "chunk_id": "073de9a96fcf49f1",
+          "score": 0.7195,
+          "intent": "check_cancellation_fee"
+        }
+      ],
+      "generated_answer": "To check the withdrawal penalty, please log in to your account and navigate to the \"Penalties\" or \"Fees\" section. You will find the relevant information there."
+    }
+  ]
+}
