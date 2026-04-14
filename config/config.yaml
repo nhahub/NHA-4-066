@@ -31,18 +31,6 @@ search:
   top_k: 5                         # default number of results to retrieve
   min_score: 0.5                   # minimum cosine similarity threshold
 
-# Optimization
-optimization:
-  # Hybrid retrieval
-  top_k_candidates: 20           # candidates retrieved before reranking
-  rrf_k: 60                      # RRF smoothing constant
-  # Reranker
-  reranker_model: "cross-encoder/ms-marco-MiniLM-L-6-v2"
-  top_k_final: 5                 # final chunks after reranking
-  # Query expansion
-  short_query_threshold: 8       # token count below which expansion fires
-  expansion_max_tokens: 80
-
 # Evaluation
 evaluation:
   n_samples: 50
