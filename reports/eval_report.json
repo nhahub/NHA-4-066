@@ -1,0 +1,29 @@
+{
+  "timestamp": "20260314_031907",
+  "config": "config/config.yaml",
+  "n_samples": 50,
+  "model": "mistral (Ollama)",
+  "embedder": "BAAI/bge-base-en-v1.5",
+  "retrieval": {
+    "hit_rate@1": 1.0,
+    "mrr@1": 1.0,
+    "precision@1": 1.0,
+    "hit_rate@3": 1.0,
+    "mrr@3": 1.0,
+    "precision@3": 1.0,
+    "hit_rate@5": 1.0,
+    "mrr@5": 1.0,
+    "precision@5": 0.992
+  },
+  "relevance": {
+    "mean_cosine_similarity": 0.8681,
+    "std_cosine_similarity": 0.0622,
+    "mean_bertscore_f1": 0.3987,
+    "std_bertscore_f1": 0.2412
+  },
+  "interpretation": {
+    "hit_rate@5": "Excellent",
+    "mrr@5": "Excellent",
+    "cosine_sim": "Excellent"
+  }
+}
