@@ -104,7 +104,7 @@ def run(
     logger.info("STEP 1 – Loading RAG pipeline & evaluators")
     logger.info("=" * 60)
 
-    pipeline = RAGPipeline(config_path, top_k=5)
+    pipeline = RAGPipeline(config_path, top_k=20)
     embedder = pipeline.searcher.embedder          # reuse — don't load twice
 
     retrieval_evaluator = RetrievalEvaluator(k_values=[1, 3, 5])
