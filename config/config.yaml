@@ -13,10 +13,10 @@ mongodb:
 
 # Embedding Model
 embedding:
-  model_name: "BAAI/bge-base-en-v1.5"
-  dimension: 768                   # BGE-base output size
+  model_name: "BAAI/bge-m3"         # UPGRADED: Superior semantic understanding
+  dimension: 1024                  # UPGRADED: Increased from 768
   batch_size: 16                   # chunks per batch during embedding
-  max_seq_length: 512              # max tokens the model accepts
+  max_seq_length: 8192             # UPGRADED: Increased from 512 (captures full Q&A)
   # BGE models need a query prefix for retrieval tasks
   query_prefix: "Represent this sentence for searching relevant passages: "
   passage_prefix: ""               # passages are embedded as-is
@@ -28,7 +28,7 @@ data:
 
 # Vector Search
 search:
-  top_k: 20                         # default number of results to retrieve
+  top_k: 5                          # default number of results to retrieve
   min_score: 0.5                   # minimum cosine similarity threshold
 
 # Evaluation
