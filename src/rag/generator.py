@@ -111,7 +111,7 @@ class Generator:
 
         try:
             response = requests.post(
-                self.ollama_url, json=payload, timeout=120
+                self.ollama_url, json=payload, timeout=400
             )
             response.raise_for_status()
             answer = response.json().get("response", "").strip()
