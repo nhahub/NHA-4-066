@@ -227,7 +227,8 @@ def print_length_report(df: pd.DataFrame, cols: list) -> None:
 # STEP 6 – RAG Chunk Construction
 def build_rag_chunks(df: pd.DataFrame) -> list[dict]:
     """
-    Convert each row into a RAG-ready document chunk with metadata.
+    Convert each row into a RAG-ready document chunk with ENRICHED metadata.
+    Includes category and intent for better semantic grounding.
 
     Chunk schema (stored as JSON-lines):
     {
@@ -245,9 +246,13 @@ def build_rag_chunks(df: pd.DataFrame) -> list[dict]:
     for _, row in df.iterrows():
         instruction = row.get("instruction_clean", row["instruction"])
         response    = row.get("response_clean",    row["response"])
+        category    = row.get("category", "GENERAL")
+        intent      = row.get("intent", "general")
 
-        # Unified embedding text: label-prefixed for better semantic search
-        text = f"Customer: {instruction}\nAgent: {response}"
+        # IMPROVED: Include category and intent as semantic anchors
+        text = (f"[{category.upper()}/{intent.upper()}] "
+                f"Q: {instruction} "
+                f"A: {response}")
 
         chunk_id = hashlib.sha256(text.encode()).hexdigest()[:16]
 
@@ -268,6 +273,7 @@ def build_faq_chunks(df: pd.DataFrame) -> list[dict]:
     """
     Deduplicate by intent to produce one canonical FAQ chunk per intent.
     Selects the response with the median token length (most representative).
+    IMPROVED: Include category and intent metadata for better semantic grounding.
     """
     faq = []
     for intent, group in df.groupby("intent"):
@@ -275,16 +281,24 @@ def build_faq_chunks(df: pd.DataFrame) -> list[dict]:
         med_len = group["response_clean"].apply(len).median()
         idx = (group["response_clean"].apply(len) - med_len).abs().idxmin()
         row = group.loc[idx]
+        
+        category = row.get("category", "FAQ")
+
+        # IMPROVED: Include category and intent as semantic anchors
+        text = (f"[{category.upper()}/{intent.upper()}] "
+                f"Q: {row['instruction_clean']} "
+                f"A: {row['response_clean']}")
 
         faq.append({
             "chunk_id":    f"faq_{intent}",
-            "text":        f"Q: {row['instruction_clean']}\nA: {row['response_clean']}",
+            "text":        text,  # Now includes metadata
             "instruction": row["instruction_clean"],
             "response":    row["response_clean"],
-            "category":    row["category"],
+            "category":    category,
             "intent":      intent,
-            "flags":       "",
-            "token_len":   token_length(row["response_clean"]),
+            "flags":       "faq_canonical",
+            "token_len":   token_length(text),
+            "source":      "faq_chunks",
         })
     return faq
 

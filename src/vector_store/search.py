@@ -111,19 +111,31 @@ class VectorSearcher:
 
     def format_context(self, results: list[dict]) -> str:
         """
-        Format retrieved chunks into a context string ready for the LLM prompt.
-
-        Each chunk contributes its agent response (the authoritative answer).
-        The LLM will use this context to generate its final reply.
+        Format retrieved chunks cleanly for the LLM.
+        IMPROVEMENTS:
+        - Filter low-confidence results (score < 0.75)
+        - Remove metadata noise (source, exact scores)
+        - Use consistent structure
         """
         if not results:
             return "No relevant information found in the knowledge base."
 
+        # Filter out low-confidence results (score < 0.75)
+        high_quality = [r for r in results if r.get('score', 1.0) >= 0.75]
+        
+        # If all results are low-quality, use at least top 3
+        if len(high_quality) < 2:
+            high_quality = results[:3]
+        
+        # Limit to top 5 (prevent context bloat)
+        high_quality = high_quality[:5]
+        
         parts = []
-        for i, r in enumerate(results, 1):
+        for i, r in enumerate(high_quality, 1):
+            intent_label = r.get('intent', 'general').upper()
+            
             parts.append(
-                f"[Chunk {i} | {r['source']} | {r['category']} / {r['intent']} "
-                f"| score: {r['score']}]\n"
+                f"[{intent_label}]\n"
                 f"Q: {r['instruction']}\n"
                 f"A: {r['response']}"
             )
