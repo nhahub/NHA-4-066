@@ -25,6 +25,7 @@ import yaml
 
 from .embedder import Embedder
 from .mongo_store import MongoVectorStore
+from sentence_transformers import CrossEncoder
 
 logger = logging.getLogger(__name__)
 
@@ -52,6 +53,7 @@ class VectorSearcher:
         self.search_cfg = cfg["search"]
         self.embedder   = embedder or Embedder(config_path)
         self.store      = store or MongoVectorStore(config_path)
+        self.reranker   = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
 
     def search(
         self,
@@ -92,6 +94,14 @@ class VectorSearcher:
             filter_intent=filter_intent,
             min_score=min_score,
         )
+
+        # Step 3: rerank if more than 5 results
+        if len(results) > 5:
+            pairs = [(query, r['text']) for r in results]
+            rerank_scores = self.reranker.predict(pairs)
+            for r, score in zip(results, rerank_scores):
+                r['score'] = float(score)
+            results = sorted(results, key=lambda x: x['score'], reverse=True)[:5]
 
         logger.info(
             f"Query: '{query[:60]}...' → {len(results)} results "

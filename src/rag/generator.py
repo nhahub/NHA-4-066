@@ -31,9 +31,11 @@ DEFAULT_MODEL = "mistral"
 
 SYSTEM_PROMPT = """You are a helpful customer support assistant.
 Answer the user's question using ONLY the context provided below.
+Synthesize information from multiple relevant chunks if available.
+Provide a concise, accurate, and helpful response.
 If the context does not contain enough information to answer, say:
 "I don't have enough information to answer that."
-Be concise and direct. Do not repeat the question."""
+Do not repeat the question or add extra commentary."""
 
 
 class Generator:
