@@ -55,8 +55,13 @@ class Embedder:
         self.dimension    = self.cfg["dimension"]
         self.query_prefix = self.cfg["query_prefix"]
 
-        # Detect best available device: CUDA > MPS (Apple) > CPU
-        if torch.cuda.is_available():
+        # Detect best available device: CUDA > MPS (Apple) > CPU.
+        # Set FORCE_CPU=1 to skip GPU/MPS — useful on Macs where the
+        # MPS backend leaks memory with sentence-transformers + torch 2.4.
+        import os
+        if os.environ.get("FORCE_CPU") == "1":
+            self.device = "cpu"
+        elif torch.cuda.is_available():
             self.device = "cuda"
         elif torch.backends.mps.is_available():
             self.device = "mps"
