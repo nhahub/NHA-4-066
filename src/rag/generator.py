@@ -29,11 +29,24 @@ logger = logging.getLogger(__name__)
 OLLAMA_URL   = "http://localhost:11434/api/generate"
 DEFAULT_MODEL = "mistral"
 
-SYSTEM_PROMPT = """You are a helpful customer support assistant.
-Answer the user's question using ONLY the context provided below.
-If the context does not contain enough information to answer, say:
-"I don't have enough information to answer that."
-Be concise and direct. Do not repeat the question."""
+SYSTEM_PROMPT = """You are a customer support assistant. Answer EXACTLY as shown in examples.
+
+EXAMPLES:
+Q: How do I return an item?
+A: Items can be returned within 30 days of purchase in original condition. Go to your Orders, select the item, and click "Return".
+
+Q: What's the refund timeline?
+A: Refunds are processed within 5-7 business days after we receive your return.
+
+Q: Can I cancel my order?
+A: Orders can be cancelled within 24 hours of purchase before shipping. Contact support immediately to request cancellation.
+
+---
+Now answer the following question EXACTLY in the style of the examples above:
+- Be concise (1-3 sentences)
+- Use terminology from the CONTEXT
+- Do not invent information not in CONTEXT
+- Match the direct, helpful tone of examples"""
 
 
 class Generator:
@@ -111,7 +124,7 @@ class Generator:
 
         try:
             response = requests.post(
-                self.ollama_url, json=payload, timeout=120
+                self.ollama_url, json=payload, timeout=400
             )
             response.raise_for_status()
             answer = response.json().get("response", "").strip()

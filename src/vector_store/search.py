@@ -25,6 +25,7 @@ import yaml
 
 from .embedder import Embedder
 from .mongo_store import MongoVectorStore
+from sentence_transformers import CrossEncoder
 
 logger = logging.getLogger(__name__)
 
@@ -52,6 +53,7 @@ class VectorSearcher:
         self.search_cfg = cfg["search"]
         self.embedder   = embedder or Embedder(config_path)
         self.store      = store or MongoVectorStore(config_path)
+        self.reranker   = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
 
     def search(
         self,
@@ -93,6 +95,14 @@ class VectorSearcher:
             min_score=min_score,
         )
 
+        # Step 3: rerank if more than 5 results
+        if len(results) > 5:
+            pairs = [(query, r['text']) for r in results]
+            rerank_scores = self.reranker.predict(pairs)
+            for r, score in zip(results, rerank_scores):
+                r['score'] = float(score)
+            results = sorted(results, key=lambda x: x['score'], reverse=True)[:5]
+
         logger.info(
             f"Query: '{query[:60]}...' → {len(results)} results "
             f"(top score: {results[0]['score'] if results else 'N/A'})"
@@ -101,19 +111,31 @@ class VectorSearcher:
 
     def format_context(self, results: list[dict]) -> str:
         """
-        Format retrieved chunks into a context string ready for the LLM prompt.
-
-        Each chunk contributes its agent response (the authoritative answer).
-        The LLM will use this context to generate its final reply.
+        Format retrieved chunks cleanly for the LLM.
+        IMPROVEMENTS:
+        - Filter low-confidence results (score < 0.75)
+        - Remove metadata noise (source, exact scores)
+        - Use consistent structure
         """
         if not results:
             return "No relevant information found in the knowledge base."
 
+        # Filter out low-confidence results (score < 0.75)
+        high_quality = [r for r in results if r.get('score', 1.0) >= 0.75]
+        
+        # If all results are low-quality, use at least top 3
+        if len(high_quality) < 2:
+            high_quality = results[:3]
+        
+        # Limit to top 5 (prevent context bloat)
+        high_quality = high_quality[:5]
+        
         parts = []
-        for i, r in enumerate(results, 1):
+        for i, r in enumerate(high_quality, 1):
+            intent_label = r.get('intent', 'general').upper()
+            
             parts.append(
-                f"[Chunk {i} | {r['source']} | {r['category']} / {r['intent']} "
-                f"| score: {r['score']}]\n"
+                f"[{intent_label}]\n"
                 f"Q: {r['instruction']}\n"
                 f"A: {r['response']}"
             )
