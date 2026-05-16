@@ -1,0 +1,10 @@
+{
+  "timestamp": "20260516_133514",
+  "source": "reports/eval_results_20260314_031907.json",
+  "n_samples": 50,
+  "mean_bleu": 0.1644,
+  "mean_rouge1_f1": 0.4249,
+  "mean_rouge2_f1": 0.2204,
+  "mean_rougeL_f1": 0.2946,
+  "notes": "BLEU/ROUGE measure n-gram overlap. Customer-support answers are paraphrased, so these scores are typically modest even when answers are semantically correct. For paraphrase-robust scoring see relevance_eval.py (BGE cosine + BERTScore)."
+}

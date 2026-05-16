@@ -1,0 +1,461 @@
+{
+  "timestamp": "20260516_133514",
+  "source": "reports/eval_results_20260314_031907.json",
+  "n_samples": 50,
+  "mean_bleu": 0.1644,
+  "mean_rouge1_f1": 0.4249,
+  "mean_rouge2_f1": 0.2204,
+  "mean_rougeL_f1": 0.2946,
+  "per_query": [
+    {
+      "query": "I have to change to the {{Account Type}} account",
+      "generated": "To change to the [ACCOUNT_TYPE] account, follow these steps:\n\n1. Log into your account using your credentials.\n2. Navigate to the account settings or ",
+      "reference": "I'll make it happen! I appreciate your decision to switch to our {{Account Type}} account. Allow me to guide you through the process and ensure a seam",
+      "bleu": 0.0111,
+      "rouge1_f1": 0.3597,
+      "rouge2_f1": 0.1168,
+      "rougeL_f1": 0.2014
+    },
+    {
+      "query": "I need to correct purchase {{Order Number}}",
+      "generated": "To correct purchase with the order number {{Order Number}}, follow these steps:\n1. Log in to your account on our website.\n2. Go to your order history ",
+      "reference": "Thank you for informing us about the need to correct your purchase with order number {{Order Number}}. We understand the importance of ensuring your o",
+      "bleu": 0.0744,
+      "rouge1_f1": 0.3135,
+      "rouge2_f1": 0.0984,
+      "rougeL_f1": 0.1838
+    },
+    {
+      "query": "assistance to see the ETA of order {{Order Number}}",
+      "generated": "To see the ETA of order {{Order Number}}, you can log in to your account on our website, go to the \"Order History\" section, locate the specific order ",
+      "reference": "Thank you for reaching out! I'm here to assist you with checking the estimated time of arrival (ETA) for your order with the order number {{Order Numb",
+      "bleu": 0.2695,
+      "rouge1_f1": 0.4505,
+      "rouge2_f1": 0.2018,
+      "rougeL_f1": 0.3063
+    },
+    {
+      "query": "want assistance solving a payment issue",
+      "generated": "I'm here to offer my support in resolving the payment problem you're experiencing. Please provide me with more details about the issue you're facing, ",
+      "reference": "Thank you for trusting to us for assistance in resolving the payment issue you're facing. I understand that encountering payment problems can be frust",
+      "bleu": 0.1288,
+      "rouge1_f1": 0.4667,
+      "rouge2_f1": 0.2203,
+      "rougeL_f1": 0.2167
+    },
+    {
+      "query": "how can I speak with an agent?",
+      "generated": "To speak with an agent, you can follow these steps:\n\n1. Visit our website and navigate to the 'Contact Us' page.\n2. Look for the option to chat with a",
+      "reference": "I see what you mean! I'm on the same page that you are looking for assistance with speaking to an agent. I'm here to help you with that. To connect wi",
+      "bleu": 0.0795,
+      "rouge1_f1": 0.4327,
+      "rouge2_f1": 0.2012,
+      "rougeL_f1": 0.2339
+    },
+    {
+      "query": "wanna look for the bill #85632 how do i do it",
+      "generated": "To look for the bill #85632, you can log in to your account on our website and navigate to the \"Billing\" or \"Account\" section. Look for a tab or menu ",
+      "reference": "Thank you for reaching out! I completely understand your need to locate your bill with the number #{{Invoice Number}}. Let me guide you through the pr",
+      "bleu": 0.2491,
+      "rouge1_f1": 0.5161,
+      "rouge2_f1": 0.2951,
+      "rougeL_f1": 0.3548
+    },
+    {
+      "query": "tell me about subscribing to your corporate newsletter",
+      "generated": "To subscribe to our corporate newsletter, you can visit our website and navigate to the newsletter subscription page. There, you'll find a form where ",
+      "reference": "Unquestionably! Let me give you all the details about subscribing to our corporate newsletter. By subscribing, you'll receive regular updates on compa",
+      "bleu": 0.3322,
+      "rouge1_f1": 0.5116,
+      "rouge2_f1": 0.4252,
+      "rougeL_f1": 0.4031
+    },
+    {
+      "query": "need help to obtain my money back",
+      "generated": "I'm here to help you obtain your money back. To get started, please provide me with some additional details about your purchase and the reason for see",
+      "reference": "I've observed that you're seeking assistance in obtaining a refund for your money. I apologize for any inconvenience you may have faced in this situat",
+      "bleu": 0.0946,
+      "rouge1_f1": 0.4298,
+      "rouge2_f1": 0.1176,
+      "rougeL_f1": 0.2149
+    },
+    {
+      "query": "where could I reset my profile PIN code?",
+      "generated": "To reset your profile PIN code, follow these steps:\n\n1. Log in to your account using your current PIN code.\n2. Once you're logged in, navigate to the ",
+      "reference": "Definitely! I'm here to assist you in resetting your profile PIN code, ensuring a smooth and secure process.\n\nTo reset your PIN code, please follow th",
+      "bleu": 0.1493,
+      "rouge1_f1": 0.4925,
+      "rouge2_f1": 0.197,
+      "rougeL_f1": 0.2985
+    },
+    {
+      "query": "want assistance seeing bill #37777",
+      "generated": "To see bill #37777, you can log into your account and navigate to the \"Invoices\" section. From there, you should be able to find the bill with the num",
+      "reference": "Grateful you reached out to us for assistance with viewing the bill with the number #{{Invoice Number}}. I understand how important it is to access yo",
+      "bleu": 0.1013,
+      "rouge1_f1": 0.3711,
+      "rouge2_f1": 0.0842,
+      "rougeL_f1": 0.1856
+    },
+    {
+      "query": "I have to notify of a payment error",
+      "generated": "To notify us of a payment error, you can reach out to our customer support team either through our website's live chat or by phone. They have the expe",
+      "reference": "Thank you for bringing this payment error to our attention. Your proactive approach in notifying us is greatly appreciated. To ensure that your notifi",
+      "bleu": 0.0259,
+      "rouge1_f1": 0.3301,
+      "rouge2_f1": 0.099,
+      "rougeL_f1": 0.1942
+    },
+    {
+      "query": "there are issues setting up the delivery address",
+      "generated": "To resolve issues with setting up the delivery address, please follow these steps:\n\n1. Ensure that you are logged in to your account.\n2. Navigate to t",
+      "reference": "I acknowledge that you're encountering issues while setting up the delivery address. I apologize for any inconvenience this may have caused. To better",
+      "bleu": 0.0503,
+      "rouge1_f1": 0.3085,
+      "rouge2_f1": 0.1183,
+      "rougeL_f1": 0.2021
+    },
+    {
+      "query": "can I check what delivery options I have?",
+      "generated": "Yes, you can check the delivery options by visiting the website and navigating to the \"Shipping\" or \"Delivery\" section. There, you will find a list of",
+      "reference": "Sure! Let's explore the array of delivery options available for you. Here's a breakdown of our shipping choices:\n\n1. Standard Shipping: Delivered to y",
+      "bleu": 0.0086,
+      "rouge1_f1": 0.2424,
+      "rouge2_f1": 0.0308,
+      "rougeL_f1": 0.1515
+    },
+    {
+      "query": "how to list your bloody accepted payment methods?",
+      "generated": "To list the accepted payment methods, you can visit the \"Payment Methods\" section on our website or app. There, you will find a comprehensive list of ",
+      "reference": "I appreciate your request for assistance! To view the accepted payment methods at our company, you can follow these simple steps:\n\n1. Visit our websit",
+      "bleu": 0.1293,
+      "rouge1_f1": 0.4643,
+      "rouge2_f1": 0.2182,
+      "rougeL_f1": 0.2857
+    },
+    {
+      "query": "wanna check the status of purchase {{Order Number}} how to do it",
+      "generated": "To check the status of purchase {{Order Number}}, please visit our website and log into your account. Once logged in, navigate to the \"Order History\" ",
+      "reference": "Thank you for reaching out! I'm glad you're taking an active interest in staying updated on your purchase. To check the status of purchase {{Order Num",
+      "bleu": 0.2748,
+      "rouge1_f1": 0.4697,
+      "rouge2_f1": 0.3077,
+      "rougeL_f1": 0.3485
+    },
+    {
+      "query": "is there an e-mail to leave a review for a service",
+      "generated": "While there isn't an email specifically dedicated to receiving reviews, you can visit our website, navigate to the \"Contact Us\" or \"Feedback\" page, fi",
+      "reference": "We appreciate your enthusiasm to leave a review for our service! Instead of an email, we have a dedicated platform on our website where you can easily",
+      "bleu": 0.0156,
+      "rouge1_f1": 0.3922,
+      "rouge2_f1": 0.08,
+      "rougeL_f1": 0.1765
+    },
+    {
+      "query": "can you help me to open a freemium account?",
+      "generated": "Yes, I can help you open a freemium account. To get started, please visit our website and click on the \"Open an Account\" button. If you have any quest",
+      "reference": "I'll make it happen! I'd be delighted to assist you in opening a freemium account. To get started, could you please provide me with your full name, em",
+      "bleu": 0.1302,
+      "rouge1_f1": 0.3509,
+      "rouge2_f1": 0.1071,
+      "rougeL_f1": 0.2456
+    },
+    {
+      "query": "I try to obtain refunds",
+      "generated": "I can tell that you have been attempting to obtain refunds, and I'm here to assist you in the process. To begin, could you please provide me with more",
+      "reference": "I can tell that you have been attempting to obtain refunds, and I'm here to assist you in the process. Obtaining refunds can sometimes be challenging,",
+      "bleu": 0.438,
+      "rouge1_f1": 0.6222,
+      "rouge2_f1": 0.4962,
+      "rougeL_f1": 0.5185
+    },
+    {
+      "query": "help checking in which cases can I ask for reimbursements",
+      "generated": "You can ask for reimbursements in the following cases:\n\n1. Product or Service Defects\n2. Cancellation within the Grace Period\n3. Unauthorized Charges\n",
+      "reference": "I'm happy to help! I understand your desire to learn about the specific situations where you can request reimbursements. Here's a breakdown to provide",
+      "bleu": 0.0249,
+      "rouge1_f1": 0.3333,
+      "rouge2_f1": 0.1,
+      "rougeL_f1": 0.2157
+    },
+    {
+      "query": "could you help me checking the refund current status?",
+      "generated": "To check the current status of your refund, log into your account on our website and navigate to the \"My Orders\" or \"Order History\" section. There, yo",
+      "reference": "I understand your desire to check the current status of your refund. Let me quickly assist you with that. May I kindly ask for some information regard",
+      "bleu": 0.1236,
+      "rouge1_f1": 0.3119,
+      "rouge2_f1": 0.1495,
+      "rougeL_f1": 0.2569
+    },
+    {
+      "query": "where to check how long the shipping takes?",
+      "generated": "To check how long the shipping takes, you can visit our website and enter your [ORDER_NUMBER] or [PLACEHOLDER] in the designated tracking section. You",
+      "reference": "We understand your curiosity about tracking the duration of your shipment. To provide you with accurate information, could you please share the {{Trac",
+      "bleu": 0.0134,
+      "rouge1_f1": 0.4107,
+      "rouge2_f1": 0.0909,
+      "rougeL_f1": 0.1607
+    },
+    {
+      "query": "can you help me to submit a different delivery address?",
+      "generated": "Yes, I can help you submit a different delivery address. To proceed, please follow these steps:\n\n1. Log in to your account.\n2. Navigate to the 'My Acc",
+      "reference": "I'll take care of it! I'm here to assist you in submitting a different delivery address. To proceed with this request, you can follow these steps:\n\n1.",
+      "bleu": 0.3745,
+      "rouge1_f1": 0.5935,
+      "rouge2_f1": 0.4706,
+      "rougeL_f1": 0.4903
+    },
+    {
+      "query": "i can check the status of my company newsletter subscription",
+      "generated": "Absolutely! You can check the status of your company newsletter subscription by visiting our website and logging in to your account. Once logged in, n",
+      "reference": "Absolutely! I'm glad to hear that you would like to check the status of your company newsletter subscription. Our customer service team will be able t",
+      "bleu": 0.2498,
+      "rouge1_f1": 0.494,
+      "rouge2_f1": 0.3659,
+      "rougeL_f1": 0.3976
+    },
+    {
+      "query": "i have issues editing the address",
+      "generated": "To resolve your issue with editing the address, please follow these steps:\n1. Log in to your account.\n2. Go to the \"Account Settings\" or \"Profile\" sec",
+      "reference": "I'm sorry to hear that you're experiencing difficulties with editing your address. Don't worry, I'm here to help! Could you please provide me with mor",
+      "bleu": 0.082,
+      "rouge1_f1": 0.3667,
+      "rouge2_f1": 0.2203,
+      "rougeL_f1": 0.3
+    },
+    {
+      "query": "i do not know what i have to do to edit the user information",
+      "generated": "To edit your user information, you can log in to your account on our website or mobile app. Then, navigate to the \"Account Settings\" or \"Profile\" sect",
+      "reference": "How utterly exhilarating it is to embark on the quest of editing your esteemed user information!I am here to serve as your knowledgeable companion thr",
+      "bleu": 0.1013,
+      "rouge1_f1": 0.3256,
+      "rouge2_f1": 0.1417,
+      "rougeL_f1": 0.2326
+    },
+    {
+      "query": "speak with human agent",
+      "generated": "To speak with a human agent, you can follow these steps:\n\n1. Navigate to the \"Contact Us\" page on our website.\n2. Choose the contact option that suits",
+      "reference": "We're listening! I'm keyed into the fact that you would like to speak with a human agent directly. I'm here to help you with that. To connect you with",
+      "bleu": 0.0583,
+      "rouge1_f1": 0.2688,
+      "rouge2_f1": 0.087,
+      "rougeL_f1": 0.1505
+    },
+    {
+      "query": "I need assistance to shop several of your product",
+      "generated": "We are delighted to assist you in shopping several of our products! To get started, could you please let us know which specific products you are looki",
+      "reference": "We are delighted to assist you in shopping several of our products! It's fantastic to see your interest in our offerings. Our team is ready to provide",
+      "bleu": 0.398,
+      "rouge1_f1": 0.5505,
+      "rouge2_f1": 0.3925,
+      "rougeL_f1": 0.422
+    },
+    {
+      "query": "I need assistance to file a consumer claim",
+      "generated": "To file a consumer claim, gather any relevant documents such as receipts, order numbers, or proof of purchase. Then, contact our customer support team",
+      "reference": "I understand the urgency and importance of filing a consumer claim, and I'm here to provide the guidance and support you need. Filing a claim can be a",
+      "bleu": 0.0596,
+      "rouge1_f1": 0.304,
+      "rouge2_f1": 0.0813,
+      "rougeL_f1": 0.192
+    },
+    {
+      "query": "edit information on premium account",
+      "generated": "To edit the information on your premium account, I recommend accessing your account settings through our secure [PLACEHOLDER]. From there, you'll have",
+      "reference": "How remarkable it is to embrace the splendid journey of editing the information on your esteemed {{Account Category}} account!I am thrilled to assist ",
+      "bleu": 0.0572,
+      "rouge1_f1": 0.4,
+      "rouge2_f1": 0.1667,
+      "rougeL_f1": 0.2545
+    },
+    {
+      "query": "i have got to modify my shipping address how to do it",
+      "generated": "To modify your shipping address, you can follow these simple steps:\n1. Log in to your account on our website.\n2. Go to your account settings or profil",
+      "reference": "No worries! To modify your shipping address, you can follow these simple steps:\n1. Log in to your account on our website.\n2. Go to your account settin",
+      "bleu": 0.4545,
+      "rouge1_f1": 0.6047,
+      "rouge2_f1": 0.6,
+      "rougeL_f1": 0.6047
+    },
+    {
+      "query": "I want to delete a {{Account Type}} account, help me",
+      "generated": "To delete a [ACCOUNT_TYPE] account, you can follow these steps:\n\n1. Log in to your account on our website or app.\n2. Navigate to the account settings ",
+      "reference": "We're here for you to us for assistance with deleting your {{Account Type}} account. I understand that you have made the decision to delete your accou",
+      "bleu": 0.0217,
+      "rouge1_f1": 0.4,
+      "rouge2_f1": 0.0979,
+      "rougeL_f1": 0.2345
+    },
+    {
+      "query": "I have got to leave my feedback, I need assistance",
+      "generated": "Happy to help you with leaving your feedback! Your insights are essential to us, as they help us enhance our services and create a better experience f",
+      "reference": "Happy to get your message to us with your feedback! Your insights are essential to us, as they help us enhance our services and create a better experi",
+      "bleu": 0.8819,
+      "rouge1_f1": 0.9286,
+      "rouge2_f1": 0.8909,
+      "rougeL_f1": 0.9286
+    },
+    {
+      "query": "show cancellation penalty",
+      "generated": "To view the cancellation penalty, please follow these steps:\n1. Visit our website and log in to your account.\n2. Navigate to the \"Billing\" or \"Account",
+      "reference": "Certainly! Allow me to provide you with the details regarding the cancellation penalty.",
+      "bleu": 0.0309,
+      "rouge1_f1": 0.1728,
+      "rouge2_f1": 0.0506,
+      "rougeL_f1": 0.1481
+    },
+    {
+      "query": "how do i create a freemium account",
+      "generated": "To create a freemium account, you can visit our website and navigate to the account creation page. On that page, you will see an option to create a fr",
+      "reference": "I'll do my best! \ud83c\udf1f I'm delighted to assist you in creating a freemium account. It's a straightforward process that will give you access to a range of ",
+      "bleu": 0.0846,
+      "rouge1_f1": 0.3529,
+      "rouge2_f1": 0.1548,
+      "rougeL_f1": 0.2235
+    },
+    {
+      "query": "how do I file a consumer complaint against your company?",
+      "generated": "To file a consumer complaint against our company, you can reach out to our customer support team via phone, email, or through our website. They will p",
+      "reference": "I've understood you are looking to file a consumer complaint against our company, and I'm here to guide you through the process. Filing a complaint is",
+      "bleu": 0.1222,
+      "rouge1_f1": 0.368,
+      "rouge2_f1": 0.1301,
+      "rougeL_f1": 0.272
+    },
+    {
+      "query": "could ya help me infofming of a sign-up issue",
+      "generated": "We're here to help you inform us about the sign-up issue you're facing. To better assist you, could you please provide more details about the specific",
+      "reference": "We've received your message to us for assistance in informing us about the sign-up issue you're facing. We understand how important it is to address a",
+      "bleu": 0.4141,
+      "rouge1_f1": 0.6667,
+      "rouge2_f1": 0.4522,
+      "rougeL_f1": 0.4786
+    },
+    {
+      "query": "find information about the lost access key",
+      "generated": "To find information about a lost access key, you can visit the platform's support page or reach out to the customer service team. They can provide you",
+      "reference": "I'm on it! I completely understand your need to find information about the lost access key. Losing access to your key can be frustrating, but rest ass",
+      "bleu": 0.0775,
+      "rouge1_f1": 0.3494,
+      "rouge2_f1": 0.0976,
+      "rougeL_f1": 0.2169
+    },
+    {
+      "query": "I don't know what I need to do to get the bill #12588",
+      "generated": "To get bill #12588, please log in to your account on our website or mobile app. Once you're logged in, navigate to the \"Billing\" or \"Invoices\" section",
+      "reference": "Unquestionably! I understand that you are unsure of the steps to retrieve the bill with number #{{Invoice Number}}. Let me guide you through the proce",
+      "bleu": 0.2453,
+      "rouge1_f1": 0.5223,
+      "rouge2_f1": 0.2968,
+      "rougeL_f1": 0.3312
+    },
+    {
+      "query": "I do not know what to do to delete a standard account",
+      "generated": "To delete a standard account, you can follow these steps:\n\n1. Log in to your account on our website.\n2. Navigate to the account settings or profile se",
+      "reference": "Glad you got in touch to us for assistance with deleting your standard account. I understand that you may be unsure about the necessary steps, but res",
+      "bleu": 0.0505,
+      "rouge1_f1": 0.4051,
+      "rouge2_f1": 0.0897,
+      "rougeL_f1": 0.2152
+    },
+    {
+      "query": "I don't know what to do to call customer support",
+      "generated": "To call our customer support, you can dial our dedicated helpline at [PLACEHOLDER]. Our friendly agents will be ready to assist you with any questions",
+      "reference": "Honored to assist! I'm clued in that you're unsure about how to call our customer support team. Don't worry; I'm here to guide you. To contact our cus",
+      "bleu": 0.2748,
+      "rouge1_f1": 0.5581,
+      "rouge2_f1": 0.5,
+      "rougeL_f1": 0.5349
+    },
+    {
+      "query": "add something to order {{Order Number}}",
+      "generated": "To add something to order [ORDER_NUMBER], you can follow these steps:\n\n1. Log in to your account on our website or mobile app.\n2. Navigate to your ord",
+      "reference": "I've been informed that you need assistance with adding something to your order with the number {{Order Number}}. We are here to help make the necessa",
+      "bleu": 0.0078,
+      "rouge1_f1": 0.2632,
+      "rouge2_f1": 0.0957,
+      "rougeL_f1": 0.1579
+    },
+    {
+      "query": "can you help me to buy a damn article?",
+      "generated": "Yes, I can help you buy a specific article! To get started, please provide me with more details about the article you'd like to buy, such as the name,",
+      "reference": "We're here to assist you in purchasing the article you're interested in! It's great to see your enthusiasm, and I can assure you that we'll make this ",
+      "bleu": 0.1186,
+      "rouge1_f1": 0.4238,
+      "rouge2_f1": 0.1879,
+      "rougeL_f1": 0.2649
+    },
+    {
+      "query": "can i check at what time i can reach customer support",
+      "generated": "Our customer support is available from [PLACEHOLDER]. You can check the specific timings by visiting our website's contact page or referring to the cu",
+      "reference": "Thank you for trusting us! I'm fully aware of you are looking for information about the timings when our customer support team is available. Our custo",
+      "bleu": 0.0738,
+      "rouge1_f1": 0.3486,
+      "rouge2_f1": 0.1308,
+      "rougeL_f1": 0.2202
+    },
+    {
+      "query": "seeing your money back policy",
+      "generated": "To see our money back policy, please visit our website and navigate to the \"Refund Policy\" section, usually found in the footer or under the \"Terms an",
+      "reference": "I appreciate your interest in understanding our money back policy. At our company, we strive to provide a transparent and customer-centric approach to",
+      "bleu": 0.0518,
+      "rouge1_f1": 0.3393,
+      "rouge2_f1": 0.0727,
+      "rougeL_f1": 0.2321
+    },
+    {
+      "query": "I bought some items, help canceling order {{Order Number}}",
+      "generated": "To cancel your purchase with order number {{Order Number}}, please follow these steps:\n\n1. Log in to your account using your credentials.\n2. Navigate ",
+      "reference": "I can tell that you've made a purchase and now you need assistance with canceling order number {{Order Number}}. Allow me to guide you through the pro",
+      "bleu": 0.0649,
+      "rouge1_f1": 0.2839,
+      "rouge2_f1": 0.0654,
+      "rougeL_f1": 0.1677
+    },
+    {
+      "query": "could you help me inform of a problem with registrations?",
+      "generated": "Yes, I can help you inform of a problem with registrations. To do so, please provide more details about the specific issue you're facing. This will en",
+      "reference": "We appreciate you reaching out to inform us about the problem you encountered during the registration process. Your feedback is valuable in helping us",
+      "bleu": 0.0867,
+      "rouge1_f1": 0.4186,
+      "rouge2_f1": 0.126,
+      "rougeL_f1": 0.186
+    },
+    {
+      "query": "I want assistance seeing your accepted payment methods",
+      "generated": "To view our accepted payment methods, please follow these simple steps:\n\n1. Visit our website and navigate to the 'Payment Methods' section.\n2. On the",
+      "reference": "Sure! I'm delighted to assist you in exploring the payment methods we accept. Our objective is to provide you with flexibility and convenience. Here a",
+      "bleu": 0.026,
+      "rouge1_f1": 0.2817,
+      "rouge2_f1": 0.1,
+      "rougeL_f1": 0.1408
+    },
+    {
+      "query": "I am trying to change to the standard account",
+      "generated": "To change to the standard account, follow these steps:\n\n1. Access Your Account: Log into our platform using your credentials.\n2. Account Settings: Onc",
+      "reference": "I'm thrilled that you're considering switching to our {{Account Type}} account! Let's make this transition smooth and hassle-free for you:\n\n1. Access ",
+      "bleu": 0.1195,
+      "rouge1_f1": 0.3931,
+      "rouge2_f1": 0.1871,
+      "rougeL_f1": 0.2543
+    },
+    {
+      "query": "I don't knos how to check when my package is going to arrive",
+      "generated": "To check when your package is going to arrive, you can visit our website and navigate to the \"Order Status\" or \"Track Package\" section. Once there, yo",
+      "reference": "We completely understand your concern about tracking the delivery status of your package. To assist you with this, could you please provide us with th",
+      "bleu": 0.0205,
+      "rouge1_f1": 0.3393,
+      "rouge2_f1": 0.1091,
+      "rougeL_f1": 0.1786
+    },
+    {
+      "query": "i have got to check the damn withdrawal penalty",
+      "generated": "To check the withdrawal penalty, please log in to your account and navigate to the \"Penalties\" or \"Fees\" section. You will find the relevant informati",
+      "reference": "Indeed! To view the withdrawal penalty, please log in to your account and navigate to the \"Penalties\" or \"Fees\" section. You will find the relevant in",
+      "bleu": 0.8884,
+      "rouge1_f1": 0.9434,
+      "rouge2_f1": 0.902,
+      "rougeL_f1": 0.9434
+    }
+  ]
+}
