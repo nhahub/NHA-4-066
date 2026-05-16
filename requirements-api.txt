@@ -1,0 +1,10 @@
+# API-specific deps for the FastAPI REST layer (MS3).
+# Install on top of requirements.txt:
+#     pip install -r requirements.txt -r requirements-api.txt
+#
+# Pinned to versions known to work with Python 3.11 and the project's
+# existing torch/transformers lock.
+
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+gunicorn==22.0.0
