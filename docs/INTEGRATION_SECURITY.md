@@ -13,14 +13,18 @@ deployment topology, threat assumptions, and operational runbook.
 | Service name | `support-rag-api` |
 | Runtime | Python 3.11, FastAPI + Uvicorn, packaged as a single container |
 | Hosting | Azure Container Apps (ACA) — see `deploy/azure/main.bicep` |
-| Stateful deps | MongoDB (vector store), Ollama+Mistral (LLM) |
+| Image registry | **GitHub Container Registry** (`ghcr.io/nhahub/support-rag-api`) — free |
+| Vector store | **MongoDB Atlas M0** (free tier, 512 MB) |
+| LLM backend | **HuggingFace Inference API** (free serverless) in cloud; Ollama+Mistral locally |
 | Public surface | HTTPS, single ingress with cert managed by ACA |
 | Auth | API key (`X-API-Key` header) |
-| Latency budget | < 5 s p95 end-to-end (retrieve + generate) |
+| Latency budget | < 30 s p95 end-to-end (HF cold-start + RAG) |
 
-The API exposes the existing `RAGPipeline` (BGE retrieval → Mistral
-generation) over REST. It is intentionally small and stateless — every
-request stands alone.
+The API exposes the existing `RAGPipeline` (BGE retrieval → LLM
+generation) over REST. The LLM backend is pluggable via the
+`RAG_GENERATION_PROVIDER` env var (`ollama` for local, `huggingface`
+for cloud) — see `src/rag/generator_factory.py`. The pipeline is
+intentionally small and stateless: every request stands alone.
 
 ---
 
@@ -132,84 +136,107 @@ moment the new revision is healthy.
 
 ---
 
-## 4. Deployment topology
+## 4. Deployment topology — free-tier production
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
 │                       Azure Container Apps env                       │
 │                                                                      │
 │   ┌────────────────────┐    HTTPS    ┌────────────────────────────┐  │
-│   │  Support Portal     │ ──────────▶ │  support-rag-api (ACA)    │  │
-│   │  (browser / server) │   X-API-Key │  FastAPI + BGE in image    │  │
-│   └────────────────────┘             │  1 vCPU · 2 GiB · 1–3 reps │  │
+│   │  Support Portal     │ ──────────▶ │  supportrag-api (ACA)     │  │
+│   │  (browser / server) │  X-API-Key  │  FastAPI + BGE in image    │  │
+│   └────────────────────┘              │  0.5 vCPU · 1 GiB         │  │
+│                                       │  minReplicas: 0 → free    │  │
 │                                       └──────┬───────────┬─────────┘  │
 │                                              │           │            │
 │                                  vector search│           │ generation │
 │                                              ▼           ▼            │
 │                                  ┌─────────────────┐  ┌──────────────┐│
-│                                  │ MongoDB Atlas    │  │ Ollama       ││
-│                                  │ chunk_embeddings │  │ Mistral 7B   ││
+│                                  │ MongoDB Atlas    │  │ HuggingFace   ││
+│                                  │ M0 (free)        │  │ Inference API ││
+│                                  │ chunk_embeddings │  │ (free tier)   ││
 │                                  └─────────────────┘  └──────────────┘│
 └──────────────────────────────────────────────────────────────────────┘
                               ▲
-                              │ build & push
+                              │ docker push
                   ┌───────────┴───────────┐
-                  │ Azure Container Reg.  │
-                  │ supportrag<hash>.acr  │
+                  │ GitHub Container Reg. │
+                  │ ghcr.io/nhahub/...    │
                   └───────────────────────┘
 ```
 
-**What lives where**
+**What lives where (all on free tiers)**
 
-- **Container App `supportrag-api`** — the FastAPI process. Stateless.
-  Scales 1–3 on concurrent HTTP requests.
-- **Azure Container Registry** — private image registry. Image pulled by
-  ACA using admin-account credentials stored as an ACA secret.
-- **Azure Key Vault `supportragkv*`** — holds the production API key.
-- **Log Analytics workspace `supportrag-logs`** — receives stdout from
-  the container; queryable via KQL.
-- **MongoDB** — production should use **MongoDB Atlas** (Atlas Vector
-  Search is a one-line swap inside `mongo_store.vector_search`). The
-  current local dev compose uses a containerised MongoDB 7.0.
-- **Ollama + Mistral** — for production this is the open item to resolve:
-  - Cheapest: bundle Ollama in a second Container App in the same env.
-  - Cleanest: swap to **Azure OpenAI** by adding an `AzureOpenAIGenerator`
-    behind the existing `Generator` interface. The chat endpoint contract
-    does not change.
+| Component | Provider | Free-tier cap |
+|---|---|---|
+| `supportrag-api` Container App | Azure Container Apps | 180k vCPU-sec + 360k GiB-sec free/mo. `minReplicas: 0` keeps idle cost ≈ $0; first request after sleep cold-starts in ~30 s |
+| Image registry | GitHub Container Registry | Free for public packages; private packages free up to 500 MB |
+| Key Vault `supportragkv*` | Azure Key Vault | 10k operations/mo free; holds `api-key`, `hf-token`, `mongo-uri` |
+| Log Analytics `supportrag-logs` | Azure Monitor | 5 GB/mo ingest free |
+| Vector store | MongoDB Atlas M0 | 512 MB free (we use ~75 MB) |
+| LLM | HuggingFace Inference API | Free serverless; ~30 s cold-start, rate limits apply |
+
+**Selecting the LLM backend.** The image runs whichever provider
+`RAG_GENERATION_PROVIDER` selects at startup:
+  - `huggingface` (default in cloud) → `HuggingFaceGenerator` reads
+    `HF_TOKEN`, `HF_MODEL`. No additional infrastructure.
+  - `ollama` (default locally) → original `Generator` talking to
+    Ollama on `localhost:11434`.
+
+To move to a paid hosted LLM (Azure OpenAI, Together.ai, etc.), add a
+sibling class in `src/rag/` and an `elif` branch in
+`generator_factory.py`. No other file changes.
 
 ---
 
 ## 5. Deployment runbook
 
-### One-time: provision Azure infra
+### Prereqs (one-time, all free)
+
+1. **Azure** — `az login` with a subscription that has free-tier credit.
+2. **MongoDB Atlas** — sign up at `mongodb.com/atlas`, create an M0
+   cluster, whitelist `0.0.0.0/0` (or ACA's outbound IPs), copy the
+   `mongodb+srv://...` URI.
+3. **Populate Atlas with embeddings.** Run *locally*, once:
+   ```bash
+   MONGO_URI="mongodb+srv://..." python -m src.vector_store.build_store --drop
+   ```
+   This embeds the 24k chunks with BGE-base and bulk-upserts them.
+4. **HuggingFace** — sign up, generate a token at
+   `huggingface.co/settings/tokens` (Read access is enough for Inference API).
+5. **GitHub Container Registry** — log in to `gh` CLI (`gh auth login`)
+   so the deploy script can pull a token for `docker push`. Alternatively
+   set `GHCR_TOKEN` to a PAT with `write:packages` scope.
+
+### One-shot deploy
 
 ```bash
 cd deploy/azure
-az login
-az account set -s <subscription-id>
 
-export MONGO_URI="mongodb+srv://..."        # Atlas connection string
-./deploy.sh support-rag-rg westeurope v1
+export MONGO_URI="mongodb+srv://user:pass@cluster.xxxx.mongodb.net/support_rag"
+export HF_TOKEN="hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+./deploy.sh support-rag-rg westeurope
 ```
 
 The script:
-1. Creates the resource group if missing.
-2. Deploys `main.bicep` (Log Analytics, ACR, Key Vault, ACA env, container app).
-3. Builds the Docker image from `deploy/Dockerfile`.
-4. Pushes the image to the newly-provisioned ACR.
+1. Builds the image (forcing `linux/amd64` for ACA compatibility).
+2. Pushes to `ghcr.io/nhahub/support-rag-api:latest`.
+3. Creates the resource group if missing.
+4. Deploys `main.bicep` (Log Analytics, Key Vault, ACA env, container app).
 5. Rolls out a new ACA revision pointing at the freshly-pushed image.
-6. Prints the API URL, OpenAPI URL, and generated API key.
+6. Prints the API URL, OpenAPI URL, and the generated API key.
 
 ### Re-deploy a new code version
 
 ```bash
-./deploy.sh support-rag-rg westeurope v2
+IMAGE_TAG=v2 ./deploy.sh support-rag-rg westeurope
 ```
 
 ACA holds previous revisions; rollback is a single `az containerapp
 revision activate` call.
 
-### Local-only stack (no Azure)
+### Local-only stack (no Azure, no HF)
 
 ```bash
 export API_KEY=$(openssl rand -hex 32)

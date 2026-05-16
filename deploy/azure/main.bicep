@@ -1,23 +1,24 @@
 // ────────────────────────────────────────────────────────────────────────────
-//  Azure Container Apps deployment for the Support RAG API.
+//  Azure Container Apps deployment — ZERO-BUDGET variant.
 //
-//  Provisions:
-//    - Log Analytics workspace (required by ACA)
-//    - Container Apps environment
-//    - Azure Container Registry (private)
-//    - Container App: support-rag-api (1 replica, scale 1–3 on HTTP)
-//    - Azure Key Vault to hold the API key
+//  Cost-conscious choices vs. the original template:
+//    - No Azure Container Registry: image is pulled from GitHub Container
+//      Registry (ghcr.io/nhahub/support-rag-api).  GHCR is free for any
+//      visibility level on a public repo.
+//    - LLM is HuggingFace Inference API (free tier) — no Ollama container.
+//    - MongoDB is expected to be MongoDB Atlas free M0 (mongodb+srv URI).
+//    - Container App is configured with minReplicas: 0 (scale-to-zero)
+//      so the ACA bill stays inside the Azure free-tier vCPU-second pool.
 //
-//  Out of scope (deliberately): the Mongo + Ollama backends. In production
-//  swap to MongoDB Atlas (vector search) and either bundle Ollama in a
-//  second container app or call Azure OpenAI. See docs/INTEGRATION_SECURITY.md.
+//  Still provisioned (all free at low volume):
+//    - Log Analytics workspace  (ACA requirement; 5 GB/mo free ingest)
+//    - Key Vault                (10k ops/mo free)
+//    - Container Apps env       (no flat fee)
+//    - Container App            (consumption: 180k vCPU-sec + 360k GiB-sec free / mo)
 //
 //  Deploy from deploy/azure/:
-//      az group create --name $RG --location $LOCATION
-//      az deployment group create \
-//        --resource-group $RG \
-//        --template-file main.bicep \
-//        --parameters apiKey=$(openssl rand -hex 32)
+//      ./deploy.sh <resource-group> <region>
+//  See deploy.sh for the env vars it expects.
 // ────────────────────────────────────────────────────────────────────────────
 
 @description('Azure region (e.g. westeurope, eastus).')
@@ -28,32 +29,40 @@ param location string = resourceGroup().location
 @maxLength(12)
 param namePrefix string = 'supportrag'
 
-@description('Container image — pushed to the ACR created here.')
-param imageName string = 'support-rag-api'
-
-@description('Image tag to deploy.')
-param imageTag string = 'latest'
+@description('GHCR image, e.g. ghcr.io/nhahub/support-rag-api:latest')
+param image string
 
 @description('External MongoDB URI (e.g. MongoDB Atlas). Stored as a Container App secret.')
 @secure()
 param mongoUri string
 
-@description('Ollama URL the API should hit (e.g. internal Container Apps DNS, or Azure OpenAI shim).')
-param ollamaUrl string = 'http://ollama:11434/api/generate'
+@description('HuggingFace Inference API token. Free at huggingface.co/settings/tokens.')
+@secure()
+param hfToken string
+
+@description('Optional override for the HF model name. Default works for free tier.')
+param hfModel string = 'mistralai/Mistral-7B-Instruct-v0.3'
 
 @description('Secret value for X-API-Key. Generate with: openssl rand -hex 32')
 @secure()
 param apiKey string
 
-@description('Min replica count (1 keeps cold-starts away for chatbots).')
+@description('Min replica count. 0 = scale-to-zero (free-tier friendly; ~30s cold start).')
 @minValue(0)
 @maxValue(10)
-param minReplicas int = 1
+param minReplicas int = 0
 
 @description('Max replica count for HTTP-scale rule.')
 @minValue(1)
-@maxValue(30)
-param maxReplicas int = 3
+@maxValue(10)
+param maxReplicas int = 2
+
+@description('If pulling a private GHCR package, set this to a PAT with read:packages.')
+@secure()
+param ghcrPullToken string = ''
+
+@description('GitHub username/org that owns the GHCR package (used as the registry username).')
+param ghcrUsername string = 'nhahub'
 
 // ── Log Analytics (ACA requirement) ─────────────────────────────────────────
 resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2022-10-01' = {
@@ -65,17 +74,7 @@ resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2022-10-01' = {
   }
 }
 
-// ── Azure Container Registry ────────────────────────────────────────────────
-resource acr 'Microsoft.ContainerRegistry/registries@2023-07-01' = {
-  name: toLower('${namePrefix}acr${uniqueString(resourceGroup().id)}')
-  location: location
-  sku: { name: 'Basic' }
-  properties: {
-    adminUserEnabled: true
-  }
-}
-
-// ── Key Vault (holds the API key as a secret) ───────────────────────────────
+// ── Key Vault (holds API key, HF token, Mongo URI) ──────────────────────────
 resource keyVault 'Microsoft.KeyVault/vaults@2023-07-01' = {
   name: toLower('${namePrefix}kv${uniqueString(resourceGroup().id)}')
   location: location
@@ -92,9 +91,17 @@ resource keyVault 'Microsoft.KeyVault/vaults@2023-07-01' = {
 resource kvApiKeySecret 'Microsoft.KeyVault/vaults/secrets@2023-07-01' = {
   parent: keyVault
   name: 'api-key'
-  properties: {
-    value: apiKey
-  }
+  properties: { value: apiKey }
+}
+resource kvHfSecret 'Microsoft.KeyVault/vaults/secrets@2023-07-01' = {
+  parent: keyVault
+  name: 'hf-token'
+  properties: { value: hfToken }
+}
+resource kvMongoSecret 'Microsoft.KeyVault/vaults/secrets@2023-07-01' = {
+  parent: keyVault
+  name: 'mongo-uri'
+  properties: { value: mongoUri }
 }
 
 // ── Container Apps environment ──────────────────────────────────────────────
@@ -113,6 +120,10 @@ resource acaEnv 'Microsoft.App/managedEnvironments@2024-03-01' = {
 }
 
 // ── Container App ───────────────────────────────────────────────────────────
+// If ghcrPullToken is provided we configure GHCR as a private registry;
+// otherwise we assume the package is public and skip credentials entirely.
+var useGhcrAuth = !empty(ghcrPullToken)
+
 resource api 'Microsoft.App/containerApps@2024-03-01' = {
   name: '${namePrefix}-api'
   location: location
@@ -134,38 +145,45 @@ resource api 'Microsoft.App/containerApps@2024-03-01' = {
           maxAge: 600
         }
       }
-      registries: [
+      registries: useGhcrAuth ? [
         {
-          server: acr.properties.loginServer
-          username: acr.listCredentials().username
-          passwordSecretRef: 'acr-password'
+          server: 'ghcr.io'
+          username: ghcrUsername
+          passwordSecretRef: 'ghcr-pull-token'
         }
-      ]
-      secrets: [
-        { name: 'api-key',       value: apiKey }
-        { name: 'mongo-uri',     value: mongoUri }
-        { name: 'acr-password',  value: acr.listCredentials().passwords[0].value }
-      ]
+      ] : []
+      secrets: union(
+        [
+          { name: 'api-key',   value: apiKey   }
+          { name: 'mongo-uri', value: mongoUri }
+          { name: 'hf-token',  value: hfToken  }
+        ],
+        useGhcrAuth ? [ { name: 'ghcr-pull-token', value: ghcrPullToken } ] : []
+      )
     }
     template: {
       containers: [
         {
           name: 'api'
-          image: '${acr.properties.loginServer}/${imageName}:${imageTag}'
+          image: image
+          // 0.5 vCPU / 1 GiB keeps us well inside ACA's free vCPU-seconds.
+          // Bump to 1.0/2Gi if BGE-base feels slow.
           resources: {
-            cpu: json('1.0')
-            memory: '2Gi'
+            cpu: json('0.5')
+            memory: '1Gi'
           }
           env: [
-            { name: 'API_KEY',           secretRef: 'api-key' }
-            { name: 'MONGO_URI',         secretRef: 'mongo-uri' }
-            { name: 'OLLAMA_URL',        value: ollamaUrl }
-            { name: 'RAG_CONFIG',        value: 'config/config.yaml' }
-            { name: 'LOG_LEVEL',         value: 'INFO' }
-            { name: 'WORKERS',           value: '1' }
-            { name: 'FORCE_CPU',         value: '1' }
-            { name: 'CORS_ORIGINS',      value: '*' }
-            { name: 'DEFAULT_TOP_K',     value: '5' }
+            { name: 'API_KEY',                  secretRef: 'api-key' }
+            { name: 'MONGO_URI',                secretRef: 'mongo-uri' }
+            { name: 'HF_TOKEN',                 secretRef: 'hf-token' }
+            { name: 'HF_MODEL',                 value: hfModel }
+            { name: 'RAG_GENERATION_PROVIDER',  value: 'huggingface' }
+            { name: 'RAG_CONFIG',               value: 'config/config.yaml' }
+            { name: 'LOG_LEVEL',                value: 'INFO' }
+            { name: 'WORKERS',                  value: '1' }
+            { name: 'FORCE_CPU',                value: '1' }
+            { name: 'CORS_ORIGINS',             value: '*' }
+            { name: 'DEFAULT_TOP_K',            value: '5' }
           ]
           probes: [
             {
@@ -195,7 +213,7 @@ resource api 'Microsoft.App/containerApps@2024-03-01' = {
             name: 'http-scale'
             http: {
               metadata: {
-                concurrentRequests: '20'
+                concurrentRequests: '10'
               }
             }
           }
@@ -206,7 +224,6 @@ resource api 'Microsoft.App/containerApps@2024-03-01' = {
 }
 
 // ── Outputs ─────────────────────────────────────────────────────────────────
-output apiFqdn          string = api.properties.configuration.ingress.fqdn
-output acrLoginServer   string = acr.properties.loginServer
-output keyVaultName     string = keyVault.name
-output logAnalyticsId   string = logAnalytics.id
+output apiFqdn         string = api.properties.configuration.ingress.fqdn
+output keyVaultName    string = keyVault.name
+output logAnalyticsId  string = logAnalytics.id
