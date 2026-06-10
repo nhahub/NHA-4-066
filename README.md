@@ -8,6 +8,7 @@
 [![MongoDB](https://img.shields.io/badge/MongoDB-7.0-47A248?style=flat-square&logo=mongodb&logoColor=white)](https://mongodb.com)
 [![Ollama](https://img.shields.io/badge/Ollama-Mistral_7B-black?style=flat-square)](https://ollama.com)
 [![HuggingFace](https://img.shields.io/badge/🤗_Embeddings-BGE_base_v1.5-FFD21E?style=flat-square)](https://huggingface.co/BAAI/bge-base-en-v1.5)
+[![Modal](https://img.shields.io/badge/Deploy-Modal.com-7FEE64?style=flat-square)](https://modal.com)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
 [Overview](#-overview) · [Architecture](#-architecture) · [Project Structure](#-project-structure) · [Quickstart](#-quickstart) · [Milestones](#-milestones) · [Evaluation](#-evaluation-results) · [Roadmap](#-roadmap)
@@ -123,6 +124,11 @@ customer-support-rag/
 │       ├── retrieval_eval.py         # Hit Rate, MRR, Precision@K
 │       ├── relevance_eval.py         # BGE cosine similarity + BERTScore
 │       └── run_evaluation.py         # Evaluation orchestrator
+│
+├── 📂 deploy/
+│   └── 📂 modal/                     # MS3 — Modal.com deployment
+│       ├── app.py                    # RAGService (CPU) + OllamaMistral (GPU) + web endpoints
+│       └── README.md                 # Setup, secrets, deploy & usage guide
 │
 ├── requirements.txt
 └── README.md
@@ -260,13 +266,35 @@ python -m src.evaluation.run_evaluation [--samples N] [--no-bertscore]
 
 ---
 
-### 🔲 Milestone 3 — Azure Deployment
+### 🚀 Milestone 3 — Modal.com Deployment
 
-> **Status: Planned**
+> **Status: In Progress**
 
-- Deploy RAG service via Azure Machine Learning / Azure App Service
-- Build REST API with FastAPI, integrate with support portal
-- Secure endpoints with Azure AD / API key authentication
+Serverless deployment on [Modal](https://modal.com) — scale-to-zero, pay-per-second
+GPU billing, no servers to manage. Two independently-scaling services plus a
+thin layer of Modal-native web endpoints (`@modal.fastapi_endpoint`, no FastAPI
+app to maintain):
+
+```
+            POST /chat ─────┐
+            POST /search ───┼──► RAGService (CPU)
+            GET  /health    │      BGE embedder → MongoDB Atlas vector
+                             │      search → cross-encoder reranker
+                             │
+                             └──► OllamaMistral (GPU, T4)
+                                    Mistral 7B served via Ollama,
+                                    weights cached on a Modal Volume
+```
+
+| Component | Detail |
+|---|---|
+| Retrieval (`RAGService`) | CPU container — `src/vector_store/*` unchanged, points at MongoDB Atlas |
+| Generation (`OllamaMistral`) | GPU (T4) container — `ollama serve` + `mistral`, reuses `src/rag/generator.py` as-is |
+| Endpoints | `GET /health`, `POST /search`, `POST /chat` via `@modal.fastapi_endpoint` |
+| Auth | `X-API-Key` header checked against an `API_KEY` Modal Secret |
+| Secrets | `rag-mongo` (`MONGO_URI`), `rag-api-key` (`API_KEY`) |
+
+**Deliverables:** [`deploy/modal/app.py`](deploy/modal/app.py) · [`deploy/modal/README.md`](deploy/modal/README.md)
 
 ---
 
@@ -364,9 +392,9 @@ Customer support responses are naturally paraphrased. BLEU/ROUGE penalise reword
 - [x] BGE vector store with MongoDB (MS2 T1)
 - [x] RAG pipeline with Mistral via Ollama (MS2 T2)
 - [x] Retrieval & relevance evaluation framework (MS2 T2)
-- [ ] RAG optimization — reranking, chunk size tuning (MS2 T3)
-- [ ] FastAPI REST service (MS3)
-- [ ] Azure deployment (MS3)
+- [x] RAG optimization — cross-encoder reranking, rich chunks, few-shot prompt (MS2 T3)
+- [ ] Modal-native web endpoints — `/health`, `/search`, `/chat` (MS3)
+- [ ] Mistral via Ollama on Modal GPU + MongoDB Atlas vector store (MS3)
 - [ ] MLflow experiment tracking (MS4)
 - [ ] Monitoring dashboard (MS4)
 - [ ] Retraining pipeline (MS4)
