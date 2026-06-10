@@ -1,167 +1,304 @@
 """
 app.py
 ──────
-Simple Streamlit UI to test the RAG chatbot pipeline.
-Run from project root: streamlit run app.py
+Streamlit UI for the Customer Support RAG Chatbot.
+
+Run:
+    streamlit run app.py
+
+Calls the Modal Cloud deployment (deploy/modal/app.py) for retrieval and
+generation — no local services required.
 """
 
-import sys
-from pathlib import Path
+import html
 
+import requests
 import streamlit as st
 
-sys.path.insert(0, str(Path(__file__).parent))
+MODAL_APP_NAME = "support-rag-chatbot"
+MODAL_WORKSPACE = "alhasanmuhammadai"
+CATEGORIES = [
+    "All", "ACCOUNT", "CANCEL", "CONTACT", "DELIVERY", "FEEDBACK",
+    "INVOICE", "ORDER", "PAYMENT", "REFUND", "SHIPPING", "SUBSCRIPTION",
+]
+SAMPLE_QUESTIONS = [
+    "How do I cancel my order?",
+    "What's your refund policy?",
+    "How can I update my shipping address?",
+    "What payment methods do you accept?",
+    "How do I create an account?",
+]
 
 # ── Page config ───────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="Support RAG Chatbot",
-    page_icon="🤖",
+    page_icon="✨",
     layout="centered",
+    initial_sidebar_state="expanded",
 )
 
-# ── Styles ────────────────────────────────────────────────────────────────────
+# ── Theme / styling ──────────────────────────────────────────────────────────
 st.markdown("""
 <style>
-    /* Clean background */
-    .stApp { background-color: #0f1117; }
-
-    /* Input box */
-    .stTextInput > div > div > input {
-        background-color: #1e2130;
-        color: #ffffff;
-        border: 1px solid #3d4466;
-        border-radius: 8px;
-        padding: 12px;
-        font-size: 15px;
+    :root {
+        --surface: #FFFFFF;
+        --surface-alt: #F1ECE3;
+        --border: #E3DDD2;
+        --text: #2B2A28;
+        --text-muted: #8A8580;
+        --accent: #2F5D50;
+        --accent-soft: #E6EEEA;
+        --accent-text: #1F4338;
+        --gold: #8A6D3B;
+        --gold-soft: #F4ECDD;
+        --danger: #B5483B;
     }
 
-    /* Answer box */
-    .answer-box {
-        background-color: #1a1d2e;
-        border-left: 4px solid #4f8ef7;
-        border-radius: 8px;
-        padding: 20px 24px;
-        margin-top: 16px;
-        color: #e8eaf0;
-        font-size: 15px;
-        line-height: 1.7;
+    /* Hero */
+    .hero-eyebrow {
+        font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
+        text-transform: uppercase; color: var(--accent); margin-bottom: 6px;
     }
-
-    /* Chunk card */
-    .chunk-card {
-        background-color: #1e2130;
-        border: 1px solid #2d3250;
-        border-radius: 8px;
-        padding: 14px 18px;
-        margin-bottom: 10px;
-        font-size: 13px;
-        color: #b0b8d0;
-        line-height: 1.6;
+    .hero-title {
+        font-size: 2.1rem; font-weight: 700; letter-spacing: -0.02em;
+        color: var(--text); line-height: 1.2; margin-bottom: 6px;
     }
+    .hero-subtitle { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.5rem; }
 
-    .chunk-meta {
-        color: #4f8ef7;
-        font-size: 12px;
-        font-weight: 600;
-        margin-bottom: 6px;
+    /* Status pills */
+    .status-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 4px 0; }
+    .status-pill {
+        display: inline-flex; align-items: center; gap: 6px;
+        padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600;
+        border: 1px solid var(--border); background: var(--surface); color: var(--text-muted);
     }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .status-dot.on  { background: var(--accent); }
+    .status-dot.off { background: var(--danger); }
 
-    .score-badge {
-        display: inline-block;
-        background-color: #2a3560;
-        color: #7eb3ff;
-        border-radius: 4px;
-        padding: 2px 8px;
-        font-size: 11px;
-        margin-left: 8px;
+    /* Source cards */
+    .source-card {
+        background: var(--surface); border: 1px solid var(--border);
+        border-radius: 12px; padding: 12px 16px; margin-bottom: 10px;
     }
+    .source-card-header {
+        display: flex; justify-content: space-between; align-items: center;
+        gap: 8px; margin-bottom: 8px; flex-wrap: wrap;
+    }
+    .source-tag {
+        font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+        color: var(--accent-text); background: var(--accent-soft);
+        padding: 2px 8px; border-radius: 6px;
+    }
+    .source-score {
+        font-size: 11px; font-weight: 700; color: var(--gold);
+        background: var(--gold-soft); padding: 2px 8px; border-radius: 6px;
+    }
+    .source-q { font-size: 13.5px; color: var(--text); margin-bottom: 4px; line-height: 1.5; }
+    .source-a { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
 
-    /* Header */
-    h1 { color: #ffffff !important; }
-    h3 { color: #8892b0 !important; font-size: 13px !important;
-         text-transform: uppercase; letter-spacing: 1px; }
+    /* Tech footer */
+    .tech-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
+    .tech-badge {
+        font-size: 11.5px; font-weight: 600; color: var(--text-muted);
+        background: var(--surface-alt); border: 1px solid var(--border);
+        padding: 4px 10px; border-radius: 999px;
+    }
+    .footer-caption { text-align: center; color: var(--text-muted); font-size: 12px; margin-top: 10px; }
 
-    /* Hide Streamlit branding */
+    /* Sidebar polish */
+    section[data-testid="stSidebar"] .stButton button { border-radius: 8px; }
     #MainMenu { visibility: hidden; }
     footer { visibility: hidden; }
-    header { visibility: hidden; }
 </style>
 """, unsafe_allow_html=True)
 
-# ── Load pipeline (cached so it loads once) ───────────────────────────────────
-@st.cache_resource(show_spinner="Loading RAG pipeline...")
-def load_pipeline():
-    from src.vector_store.search import VectorSearcher
-    from src.rag.generator import Generator
-    searcher  = VectorSearcher("config/config.yaml")
-    generator = Generator()
-    return searcher, generator
 
-# ── Header ────────────────────────────────────────────────────────────────────
-st.markdown("# 🤖 Support RAG Chatbot")
-st.markdown("Ask any customer support question and get an answer from the knowledge base.")
-st.divider()
+# ── Status checks ─────────────────────────────────────────────────────────────
 
-# ── Input ─────────────────────────────────────────────────────────────────────
-query = st.text_input(
-    label="Your question",
-    placeholder="e.g. How do I cancel my order?",
-    label_visibility="collapsed",
-)
-
-col1, col2, col3 = st.columns([1, 1, 4])
-with col1:
-    ask_btn = st.button("Ask ✦", use_container_width=True, type="primary")
-with col2:
-    show_chunks = st.checkbox("Show chunks", value=False)
-
-# ── Run pipeline ──────────────────────────────────────────────────────────────
-if ask_btn and query.strip():
+@st.cache_data(ttl=8, show_spinner=False)
+def check_modal_status(workspace: str):
+    if not workspace:
+        return False
     try:
-        searcher, generator = load_pipeline()
+        r = requests.get(_modal_url(workspace, "health"), timeout=5)
+        return r.ok
+    except requests.RequestException:
+        return False
 
-        with st.spinner("Retrieving relevant knowledge..."):
-            results, context = searcher.search_and_format(query.strip(), top_k=5)
 
-        with st.spinner("Generating answer..."):
-            answer = generator.generate(query.strip(), context)
+def _modal_url(workspace: str, fn_name: str) -> str:
+    return f"https://{workspace}--{MODAL_APP_NAME}-{fn_name}.modal.run"
 
-        # ── Answer ────────────────────────────────────────────────────────
-        st.markdown("### Answer")
-        st.markdown(f'<div class="answer-box">{answer}</div>', unsafe_allow_html=True)
 
-        # ── Retrieved chunks (optional) ────────────────────────────────────
-        if show_chunks and results:
-            st.markdown("### Retrieved Chunks")
-            for i, chunk in enumerate(results, 1):
-                score   = chunk.get("score", 0)
-                intent  = chunk.get("intent", "")
-                source  = chunk.get("source", "")
-                instruction = chunk.get("instruction", "")[:120]
-                response    = chunk.get("response", "")[:200]
+def _modal_api_key() -> str:
+    try:
+        return st.secrets.get("MODAL_API_KEY", "")
+    except Exception:
+        return ""
 
-                st.markdown(f"""
-                <div class="chunk-card">
-                    <div class="chunk-meta">
-                        #{i} · {source} · {intent}
-                        <span class="score-badge">score {score:.4f}</span>
-                    </div>
-                    <b>Q:</b> {instruction}...<br>
-                    <b>A:</b> {response}...
-                </div>
-                """, unsafe_allow_html=True)
 
-    except RuntimeError as e:
-        if "Ollama" in str(e):
-            st.error("⚠️ Ollama is not running. Start it with: `ollama serve`")
-        else:
-            st.error(f"Error: {e}")
-    except Exception as e:
-        st.error(f"Something went wrong: {e}")
+def status_pill(label: str, online: bool) -> str:
+    state = "on" if online else "off"
+    text = "online" if online else "offline"
+    return (
+        f'<span class="status-pill"><span class="status-dot {state}"></span>'
+        f"{label} · {text}</span>"
+    )
 
-elif ask_btn and not query.strip():
-    st.warning("Please enter a question first.")
 
-# ── Footer ────────────────────────────────────────────────────────────────────
+# ── Backend ──────────────────────────────────────────────────────────────────
+
+def run_modal(query: str, top_k: int, category: str, workspace: str, api_key: str) -> dict:
+    payload = {"query": query, "top_k": top_k}
+    if category != "All":
+        payload["category"] = category
+
+    headers = {"X-API-Key": api_key} if api_key else {}
+    resp = requests.post(_modal_url(workspace, "chat"), json=payload, headers=headers, timeout=180)
+    if resp.status_code == 401:
+        raise RuntimeError("Authentication with the assistant service failed.")
+    resp.raise_for_status()
+    return resp.json()
+
+
+def friendly_error(e: Exception) -> str:
+    return f"Couldn't reach the assistant right now: {e}"
+
+
+def render_chunk_card(chunk: dict, idx: int) -> str:
+    score = chunk.get("score", 0)
+    intent = html.escape(chunk.get("intent", "general").replace("_", " ").title())
+    category = html.escape(chunk.get("category", ""))
+    instruction = html.escape(chunk.get("instruction", ""))
+    response = html.escape(chunk.get("response", ""))
+
+    if len(instruction) > 160:
+        instruction = instruction[:160].rstrip() + "…"
+    if len(response) > 240:
+        response = response[:240].rstrip() + "…"
+
+    return f"""
+    <div class="source-card">
+      <div class="source-card-header">
+        <span class="source-tag">#{idx} · {category} · {intent}</span>
+        <span class="source-score">match {score:.2f}</span>
+      </div>
+      <div class="source-q"><strong>Q —</strong> {instruction}</div>
+      <div class="source-a"><strong>A —</strong> {response}</div>
+    </div>
+    """
+
+
+# ── Sidebar ────────────────────────────────────────────────────────────────────
+
+with st.sidebar:
+    st.markdown("### ✨ Support RAG")
+    st.caption("Retrieval-augmented customer support assistant")
+    st.divider()
+
+    workspace = MODAL_WORKSPACE
+    api_key = _modal_api_key()
+    online = check_modal_status(workspace)
+    st.markdown(
+        '<div class="status-row">' + status_pill("Assistant", online) + "</div>",
+        unsafe_allow_html=True,
+    )
+
+    st.divider()
+    st.markdown("**Retrieval settings**")
+    top_k = st.slider("Chunks to retrieve", min_value=1, max_value=10, value=5)
+    category = st.selectbox("Category filter", CATEGORIES)
+
+    st.divider()
+    st.markdown("**Try asking**")
+    for q in SAMPLE_QUESTIONS:
+        if st.button(q, key=f"sample_{q}", use_container_width=True):
+            st.session_state.pending_query = q
+            st.rerun()
+
+    st.divider()
+    if st.button("Clear conversation", use_container_width=True):
+        st.session_state.messages = []
+        st.rerun()
+
+
+# ── Header ─────────────────────────────────────────────────────────────────────
+
+st.markdown(
+    """
+    <div class="hero-eyebrow">Customer Support · RAG</div>
+    <div class="hero-title">Ask anything about your order</div>
+    <div class="hero-subtitle">
+        Answers are grounded in our support knowledge base — semantic retrieval,
+        cross-encoder reranking, and Mistral 7B.
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 st.divider()
-st.caption("RAG · BGE-base-en-v1.5 · Mistral 7B · MongoDB")
+
+# ── Chat history ────────────────────────────────────────────────────────────────
+
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+for msg in st.session_state.messages:
+    with st.chat_message(msg["role"], avatar=msg.get("avatar")):
+        st.markdown(msg["content"])
+        sources = msg.get("sources")
+        if sources:
+            with st.expander(f"Sources ({len(sources)})"):
+                for i, chunk in enumerate(sources, 1):
+                    st.markdown(render_chunk_card(chunk, i), unsafe_allow_html=True)
+
+# ── Input ────────────────────────────────────────────────────────────────────────
+
+query = st.chat_input("Ask a customer support question…")
+if not query and "pending_query" in st.session_state:
+    query = st.session_state.pop("pending_query")
+
+if query:
+    st.session_state.messages.append({"role": "user", "content": query, "avatar": "🧑"})
+    with st.chat_message("user", avatar="🧑"):
+        st.markdown(query)
+
+    with st.chat_message("assistant", avatar="✨"):
+        with st.spinner("Thinking…"):
+            try:
+                result = run_modal(query, top_k, category, workspace, api_key)
+
+                answer = result.get("answer", "")
+                sources = result.get("retrieved_chunks", [])
+
+                st.markdown(answer)
+                if sources:
+                    with st.expander(f"Sources ({len(sources)})"):
+                        for i, chunk in enumerate(sources, 1):
+                            st.markdown(render_chunk_card(chunk, i), unsafe_allow_html=True)
+
+                st.session_state.messages.append(
+                    {"role": "assistant", "content": answer, "avatar": "✨", "sources": sources}
+                )
+            except Exception as e:
+                err = friendly_error(e)
+                st.error(err)
+                st.session_state.messages.append(
+                    {"role": "assistant", "content": f"⚠️ {err}", "avatar": "✨"}
+                )
+
+# ── Footer ─────────────────────────────────────────────────────────────────────
+
+st.markdown(
+    """
+    <div class="tech-row">
+        <span class="tech-badge">BGE-base-en-v1.5</span>
+        <span class="tech-badge">MongoDB Vector Search</span>
+        <span class="tech-badge">Cross-Encoder Reranker</span>
+        <span class="tech-badge">Mistral 7B · Ollama</span>
+        <span class="tech-badge">Modal Serverless</span>
+    </div>
+    <div class="footer-caption">Customer Support RAG Chatbot · DEPI Graduation Project</div>
+    """,
+    unsafe_allow_html=True,
+)

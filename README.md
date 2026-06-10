@@ -208,6 +208,20 @@ print(result.generated_answer)
 # → "To change an item in your order, please navigate to My Orders..."
 ```
 
+### 6. Launch the Chat App
+
+A Streamlit chat UI ([`app.py`](app.py)) ties the whole pipeline together with
+a clean, neutral, premium-styled interface. It calls the live
+[Modal Cloud deployment](deploy/modal/README.md) for retrieval and
+generation — no local MongoDB, Ollama, or GPU required.
+
+```bash
+streamlit run app.py
+```
+
+Open `http://localhost:8501` and start chatting — sample questions, category
+filters, and source-chunk citations are built in.
+
 ---
 
 ## 🗺 Milestones

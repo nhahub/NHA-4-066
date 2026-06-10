@@ -26,6 +26,10 @@ sentence-transformers==3.1.1
 pymongo==4.7.0
 rank-bm25==0.2.2
 
+# app / API
+streamlit==1.50.0
+requests==2.32.5
+
 # evaluation
 rouge-score==0.1.2
 bert-score==0.3.13

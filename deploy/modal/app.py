@@ -85,6 +85,7 @@ rag_image = (
         "transformers==4.44.2",
         "pymongo==4.7.0",
         "pyyaml==6.0.1",
+        "fastapi==0.115.0",
     )
     .add_local_dir("src", remote_path="/root/src", copy=True)
     .add_local_dir("config", remote_path="/root/config", copy=True)
@@ -93,9 +94,9 @@ rag_image = (
 
 ollama_image = (
     modal.Image.debian_slim(python_version="3.11")
-    .apt_install("curl")
+    .apt_install("curl", "zstd")
     .run_commands("curl -fsSL https://ollama.com/install.sh | sh")
-    .pip_install("requests==2.32.3")
+    .pip_install("requests==2.32.3", "fastapi==0.115.0")
     .add_local_dir("src", remote_path="/root/src", copy=True)
     .env(
         {
@@ -182,14 +183,14 @@ class OllamaMistral:
 
         for _ in range(60):
             try:
-                requests.get("http://localhost:11434/api/tags", timeout=2)
+                requests.get("http://localhost:11434/api/tags", timeout=5)
                 break
-            except requests.exceptions.ConnectionError:
+            except requests.exceptions.RequestException:
                 time.sleep(1)
         else:
             raise RuntimeError("Ollama server did not start in time")
 
-        tags = requests.get("http://localhost:11434/api/tags", timeout=5).json()
+        tags = requests.get("http://localhost:11434/api/tags", timeout=10).json()
         models = [m["name"] for m in tags.get("models", [])]
         if not any(OLLAMA_MODEL in m for m in models):
             # First cold start only — cached on the ollama-models volume
@@ -238,7 +239,7 @@ def search(item: dict, x_api_key: Optional[str] = Header(default=None)):
     )
 
 
-@app.function(image=web_image, secrets=[api_key_secret], timeout=400)
+@app.function(image=web_image, secrets=[api_key_secret], timeout=900)
 @modal.fastapi_endpoint(method="POST")
 def chat(item: dict, x_api_key: Optional[str] = Header(default=None)):
     _check_api_key(x_api_key)
@@ -263,7 +264,7 @@ def chat(item: dict, x_api_key: Optional[str] = Header(default=None)):
 
 # ── One-time vector store build (run with `modal run`, not deployed) ────────
 
-@app.function(image=build_image, secrets=[mongo_secret], timeout=3600)
+@app.function(image=build_image, cpu=8, memory=16384, secrets=[mongo_secret], timeout=3600)
 def build_vector_store(drop: bool = False):
     import sys
 
