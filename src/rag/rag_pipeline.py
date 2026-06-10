@@ -13,7 +13,7 @@ from dataclasses import dataclass, field
 from typing import Optional
 
 from src.vector_store.search import VectorSearcher
-from src.rag.generator_factory import make_generator
+from src.rag.generator import Generator
 
 logger = logging.getLogger(__name__)
 
@@ -54,9 +54,7 @@ class RAGPipeline:
 
         logger.info("Initialising RAG pipeline...")
         self.searcher  = VectorSearcher(config_path)
-        # Backend is selected by RAG_GENERATION_PROVIDER env var
-        # (ollama|huggingface). Defaults to Ollama for local dev.
-        self.generator = make_generator()
+        self.generator = Generator()
         logger.info("RAG pipeline ready.")
 
     def run(self, query: str, top_k: Optional[int] = None) -> RAGResult:
