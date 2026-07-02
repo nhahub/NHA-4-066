@@ -221,4 +221,7 @@ __marimo__/
 .vscode
 docker/mongodb/
 
+# Claude Code
+.claude/
+
 .claude
